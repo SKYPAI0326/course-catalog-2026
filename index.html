@@ -110,6 +110,25 @@
   .partner-card .name,.course-line .name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(17px,1.85vw,28px);line-height:1.3}
   .partner-card .program,.course-line .desc{font-family:var(--sans-zh);font-weight:400;font-size:clamp(13px,1.05vw,17px);opacity:.78;line-height:1.6}
   .partner-card .tag,.course-line .tag{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55;margin-bottom:.4vh}
+  /* level-table：程度定位頁專用 */
+  .level-table{display:flex;flex-direction:column;width:100%;max-width:min(1200px,96vw)}
+  .level-row{display:grid;grid-template-columns:1.3fr 2.4fr 3.2fr;gap:0 2.4vw;padding:1.8vh 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.3);align-items:start}
+  .level-row:last-child{border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.3)}
+  .level-row.level-head{padding:1vh 0;font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55;border-top:0;border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.45)}
+  .level-name{display:flex;flex-direction:column;gap:.3vh}
+  .level-zh{font-family:var(--serif-zh);font-weight:700;font-size:clamp(20px,2vw,32px);line-height:1.2}
+  .level-en{font-family:var(--mono);font-size:max(10px,.75vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55}
+  .level-audience{font-family:var(--sans-zh);font-weight:400;font-size:clamp(13px,1.05vw,17px);line-height:1.55;opacity:.85}
+  .level-courses{display:flex;flex-direction:column;gap:.3vh;font-family:var(--serif-zh);font-weight:600;font-size:clamp(13px,1.1vw,18px);line-height:1.45}
+  .level-courses>div{position:relative;padding-left:.9em}
+  .level-courses>div::before{content:'·';position:absolute;left:.1em;opacity:.5;font-weight:700}
+  @media (max-width:900px){
+    .level-row{grid-template-columns:1fr;gap:.6vh;padding:2.2vh 0}
+    .level-row.level-head{display:none}
+    .level-name{flex-direction:row;gap:1em;align-items:baseline;margin-bottom:.4vh}
+    .level-courses{margin-top:.4vh}
+  }
+
   /* feature-card：單課程詳述頁用（Page 應用設計、圖像、自動化）*/
   .feature-card{padding:3.2vh 2.2vw;border:1px solid currentColor;border-color:rgba(127,127,127,.35);border-radius:6px;display:flex;flex-direction:column;gap:1.6vh}
   .slide.dark .feature-card{background:rgba(var(--paper-rgb),.04)}
@@ -194,7 +213,7 @@
 <section class="slide hero light">
   <div class="chrome">
     <div>Course Map · 主題地圖</div>
-    <div>02 / 11</div>
+    <div>02 / 12</div>
   </div>
   <div class="frame" style="padding-top:4vh">
     <div class="kicker" data-anim>Course Map · 一頁一方向</div>
@@ -219,11 +238,85 @@
   </div>
 </section>
 
-<!-- =============== Page 3 · 生成式 AI · 通用 =============== -->
+<!-- =============== Page 3 · 程度定位（Level Map）=============== -->
+<section class="slide dark">
+  <div class="chrome">
+    <div>Level Map · 程度定位</div>
+    <div>03 / 12</div>
+  </div>
+  <div class="frame" style="padding-top:2vh">
+    <div class="kicker" data-anim>How to Choose · 程度定位</div>
+    <h2 class="h-xl" style="font-size:clamp(32px,5.4vw,86px)" data-anim>四個程度，一眼選課</h2>
+    <p class="lead" style="margin-top:1.4vh; margin-bottom:2.4vh; max-width:min(800px,92vw)" data-anim>
+      不知道從哪一堂開始？依學員對 AI 的熟悉度分四階；每階可從不同方向中選一門切入。
+    </p>
+
+    <div class="level-table" data-anim>
+      <div class="level-row level-head">
+        <div>程度</div>
+        <div>建議對象</div>
+        <div>推薦課程</div>
+      </div>
+      <div class="level-row" data-anim>
+        <div class="level-name">
+          <div class="level-zh">入門班</div>
+          <div class="level-en">L1 · Newcomer</div>
+        </div>
+        <div class="level-audience">完全沒有 AI 經驗，數位工具也不熟悉者。從觀念開始建立。</div>
+        <div class="level-courses">
+          <div>創業 AI 實戰（手機免費版入門）</div>
+          <div>辦公室 AI 工具實務應用</div>
+        </div>
+      </div>
+      <div class="level-row" data-anim>
+        <div class="level-name">
+          <div class="level-zh">基礎班</div>
+          <div class="level-en">L2 · Foundation</div>
+        </div>
+        <div class="level-audience">知道 AI、用過幾次，但不知道怎麼問才對的。學會結構化提示詞。</div>
+        <div class="level-courses">
+          <div>從「問 AI」到「交辦 AI」</div>
+          <div>Gemini 零代碼 AI 實戰課</div>
+          <div>CCS GenAI Foundations 認證研習</div>
+        </div>
+      </div>
+      <div class="level-row" data-anim>
+        <div class="level-name">
+          <div class="level-zh">整合班</div>
+          <div class="level-en">L3 · Integration</div>
+        </div>
+        <div class="level-audience">已用過 AI，想學怎麼整合進工作流：文書、會議、簡報、設計、行銷。</div>
+        <div class="level-courses">
+          <div>AI 實務全攻略</div>
+          <div>生成式 AI 工作應用班</div>
+          <div>商業用圖片生成</div>
+          <div>iPAS AI 應用規劃師初級認證研習</div>
+        </div>
+      </div>
+      <div class="level-row" data-anim>
+        <div class="level-name">
+          <div class="level-zh">協思班</div>
+          <div class="level-en">L4 · Co-thinking</div>
+        </div>
+        <div class="level-audience">已熟練 AI，想讓 AI 成為長期協作夥伴：自建工具、自動化、API 整合。</div>
+        <div class="level-courses">
+          <div>生成式 AI 職訓實務應用班（含 API / 部署）</div>
+          <div>AI 資料工廠 — n8n 大規模文件處理實戰</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>四個程度可以橫跨不同方向組合</div>
+    <div>Page 03 · Level Map</div>
+  </div>
+</section>
+
+<!-- =============== Page 4 · 生成式 AI · 通用 =============== -->
 <section class="slide light">
   <div class="chrome">
     <div>GenAI · General · 通用方向</div>
-    <div>03 / 11</div>
+    <div>04 / 12</div>
   </div>
   <div class="frame" style="padding-top:4vh">
     <div class="kicker" data-anim>Direction 01 · GenAI General</div>
@@ -276,7 +369,7 @@
 <section class="slide dark">
   <div class="chrome">
     <div>GenAI · App Building · 應用程式設計</div>
-    <div>04 / 11</div>
+    <div>05 / 12</div>
   </div>
   <div class="frame" style="padding-top:5vh">
     <div class="kicker" data-anim>Direction 02 · GenAI App Building</div>
@@ -303,7 +396,7 @@
 <section class="slide light">
   <div class="chrome">
     <div>GenAI · Imagery · 商業圖像</div>
-    <div>05 / 11</div>
+    <div>06 / 12</div>
   </div>
   <div class="frame" style="padding-top:5vh">
     <div class="kicker" data-anim>Direction 03 · GenAI Imagery</div>
@@ -330,7 +423,7 @@
 <section class="slide dark">
   <div class="chrome">
     <div>Certification · AI 認證</div>
-    <div>06 / 11</div>
+    <div>07 / 12</div>
   </div>
   <div class="frame" style="padding-top:4vh">
     <div class="kicker" data-anim>Direction 04 · Certification</div>
@@ -363,7 +456,7 @@
 <section class="slide light">
   <div class="chrome">
     <div>Digital Marketing · 數位行銷</div>
-    <div>07 / 11</div>
+    <div>08 / 12</div>
   </div>
   <div class="frame" style="padding-top:4vh">
     <div class="kicker" data-anim>Direction 05 · Digital Marketing</div>
@@ -406,7 +499,7 @@
 <section class="slide dark">
   <div class="chrome">
     <div>Automation · 自動化工作流</div>
-    <div>08 / 11</div>
+    <div>09 / 12</div>
   </div>
   <div class="frame" style="padding-top:5vh">
     <div class="kicker" data-anim>Direction 06 · Automation</div>
@@ -433,7 +526,7 @@
 <section class="slide hero light">
   <div class="chrome">
     <div>Track Record · 開課實績</div>
-    <div>09 / 11</div>
+    <div>10 / 12</div>
   </div>
   <div class="frame" style="padding-top:4vh">
     <div class="kicker" data-anim>Track Record · 截至 2026.05</div>
@@ -485,7 +578,7 @@
 <section class="slide light" data-animate="quote">
   <div class="chrome">
     <div>The Principle · 教學設計原則</div>
-    <div>10 / 11</div>
+    <div>11 / 12</div>
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>The Principle</div>
@@ -513,7 +606,7 @@
 <section class="slide hero dark">
   <div class="chrome">
     <div>Next Step · Let's Talk</div>
-    <div>11 / 11</div>
+    <div>12 / 12</div>
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>Next Step</div>
