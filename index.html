@@ -818,19 +818,27 @@ addEventListener('touchend',e=>{
   }
 },{passive:true});
 
-go(0);
+const _hashIdx=parseInt((location.hash||'').replace('#',''),10);
+go(Number.isFinite(_hashIdx)&&_hashIdx>0?Math.min(_hashIdx-1,total-1):0);
+addEventListener('hashchange',()=>{const n=parseInt(location.hash.replace('#',''),10);if(Number.isFinite(n)&&n>0)go(Math.min(n-1,total-1));});
 </script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons();</script>
 
 <script type="module">
+const _staticMode = /[?&]static\b/.test(location.search);
 let motion;
-try {
-  motion = await import('https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm');
-} catch(e) {
-  console.warn('[motion] CDN failed, disabling animations', e);
+if(_staticMode){
   document.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
   document.querySelectorAll('[data-animate="pipeline"] [data-anim]').forEach(el=>el.style.opacity='1');
+} else {
+  try {
+    motion = await import('https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm');
+  } catch(e) {
+    console.warn('[motion] CDN failed, disabling animations', e);
+    document.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
+    document.querySelectorAll('[data-animate="pipeline"] [data-anim]').forEach(el=>el.style.opacity='1');
+  }
 }
 
 if(motion){

@@ -2,11 +2,19 @@
 
 弄一下工作室對外提案簡報。橫向翻頁網頁 PPT，單一 HTML 檔。
 
-## 線上預覽
+**線上預覽：** https://skypai0326.github.io/course-catalog-2026/
 
-部署後：[https://skypai0326.github.io/course-catalog-2026/](https://skypai0326.github.io/course-catalog-2026/)
+---
 
-## 內容結構
+![Cover · 課程資源庫 2026](docs/preview-cover.png)
+
+![Overview · 整體規模](docs/preview-overview.png)
+
+![Theme I · 六大教學模組](docs/preview-modules.png)
+
+---
+
+## 內容結構（共 12 頁）
 
 | # | 主題 | 內容 |
 |---|---|---|
@@ -29,6 +37,8 @@
 - 滾輪 / 觸控滑動
 - `ESC` 顯示總覽縮圖
 - 第 4 頁 pipeline：按 `→` 或空格逐階點亮
+- URL `#N` 可直接跳到指定頁（例如 `/#5`）
+- URL 加 `?static` 跳過動效（用於截圖、列印、嵌入 iframe）
 
 ## 技術
 
