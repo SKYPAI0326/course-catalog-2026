@@ -245,7 +245,7 @@
 </section>
 
 <!-- =============== Page 4 · 主題 1 時數光譜 (pipeline) =============== -->
-<section class="slide light" data-animate="pipeline">
+<section class="slide light">
   <div class="chrome">
     <div>Theme I · 生成式 AI 工具</div>
     <div>04 / 12</div>
@@ -290,7 +290,7 @@
     </div>
   </div>
   <div class="foot">
-    <div>按 → 或空格逐階展開</div>
+    <div>由短至長 · 五階完整時數光譜</div>
     <div>Page 04 · Theme I</div>
   </div>
 </section>
@@ -873,6 +873,20 @@ if(motion){
       el.style.transform='';
     });
   }
+  // 把目標終態釘成 inline，避免 Motion v11 / WAAPI fill:none 結束後回退至 CSS 0
+  function commitFinal(els,opacity){
+    if(!els) return;
+    (Array.isArray(els)?els:[els]).forEach(el=>{
+      el.style.opacity=String(opacity!=null?opacity:1);
+      el.style.transform='none';
+    });
+  }
+  function runAnim(els, kf, opts, finalOpacity){
+    const a = animate(els, kf, opts);
+    // Motion v11: animate() 回傳的是 thenable(有 .then),沒有 .finished;結束後不持久化最終值,需手動 commit
+    if(a && typeof a.then === 'function') a.then(()=>commitFinal(els, finalOpacity), ()=>{});
+    return a;
+  }
 
   function playSlide(i){
     const slide = slides[i];
@@ -898,27 +912,27 @@ if(motion){
       const divs   = all.filter(el=>el.dataset.anim==='divider');
       const rights = all.filter(el=>el.dataset.anim==='right');
       const others = all.filter(el=>!['left','right','divider'].includes(el.dataset.anim));
-      if(others.length) animate(others, {opacity:[0,1], y:[12,0]}, {duration:.6, delay:stagger(.1, {start:.15}), easing:EASE});
-      if(lefts.length)  animate(lefts,  {opacity:[0,1], x:[-24,0]}, {duration:.8, delay:.35, easing:EASE});
-      if(divs.length)   animate(divs,   {opacity:[0,.25]},          {duration:.5, delay:.9});
-      if(rights.length) animate(rights, {opacity:[0,1], x:[24,0]},  {duration:.8, delay:1.0, easing:EASE});
+      if(others.length) runAnim(others, {opacity:[0,1], y:[12,0]}, {duration:.6, delay:stagger(.1, {start:.15}), easing:EASE});
+      if(lefts.length)  runAnim(lefts,  {opacity:[0,1], x:[-24,0]}, {duration:.8, delay:.35, easing:EASE});
+      if(divs.length)   runAnim(divs,   {opacity:[0,.25]},          {duration:.5, delay:.9}, .25);
+      if(rights.length) runAnim(rights, {opacity:[0,1], x:[24,0]},  {duration:.8, delay:1.0, easing:EASE});
       return;
     }
 
     if(recipe === 'quote'){
       const lines = all.filter(el=>el.dataset.anim==='line');
       const others = all.filter(el=>el.dataset.anim!=='line');
-      if(others.length) animate(others, {opacity:[0,1], y:[8,0]},    {duration:.6, delay:stagger(.12, {start:.2}), easing:EASE});
-      if(lines.length)  animate(lines,  {opacity:[.35,1], y:[10,0]}, {duration:.8, delay:stagger(.55, {start:.5}), easing:EASE});
+      if(others.length) runAnim(others, {opacity:[0,1], y:[8,0]},    {duration:.6, delay:stagger(.12, {start:.2}), easing:EASE});
+      if(lines.length)  runAnim(lines,  {opacity:[.35,1], y:[10,0]}, {duration:.8, delay:stagger(.55, {start:.5}), easing:EASE});
       return;
     }
 
     if(recipe === 'hero'){
-      animate(all, {opacity:[0,1], y:[14,0]}, {duration:.9, delay:stagger(.16, {start:.2}), easing:EASE});
+      runAnim(all, {opacity:[0,1], y:[14,0]}, {duration:.9, delay:stagger(.16, {start:.2}), easing:EASE});
       return;
     }
 
-    animate(all, {opacity:[0,1], y:[16,0]}, {duration:.75, delay:stagger(.1, {start:.15}), easing:EASE});
+    runAnim(all, {opacity:[0,1], y:[16,0]}, {duration:.75, delay:stagger(.1, {start:.15}), easing:EASE});
   }
 
   function pipeAdvance(){
@@ -927,14 +941,33 @@ if(motion){
     const steps  = [...slide.querySelectorAll('[data-anim="step"]')];
     if(pipeStep >= steps.length - 1) return false;
     pipeStep++;
-    animate(steps[pipeStep], {opacity:[0.15,1], y:[8,0]}, {duration:.5, easing:EASE});
+    runAnim(steps[pipeStep], {opacity:[0.15,1], y:[8,0]}, {duration:.5, easing:EASE});
     return true;
   }
 
-  window.__playSlide = playSlide;
+  window.__playSlide = function(i){
+    playSlide(i);
+    // 保險絲:若 RAF 不跑(headless / 背景分頁 / Motion 卡住),2.8s 後強制顯示該頁元素
+    const slide = slides[i];
+    if(!slide) return;
+    if(slide._safetyT) clearTimeout(slide._safetyT);
+    slide._safetyT = setTimeout(()=>{
+      slide.querySelectorAll('[data-anim]').forEach(el=>{
+        if(parseFloat(getComputedStyle(el).opacity) < .9){
+          // 取消仍在跑/卡住的 WAAPI 動畫 + 用 !important 蓋過 CSS 與 Motion 的設值
+          if(el.getAnimations) el.getAnimations().forEach(a=>{try{a.cancel()}catch(_){}});
+          const op = el.dataset.anim==='divider' ? '.25' : '1';
+          el.style.setProperty('opacity', op, 'important');
+          el.style.setProperty('transform', 'none', 'important');
+        }
+      });
+    }, 2800);
+  };
   window.__pipeAdvance = pipeAdvance;
 
-  playSlide(0);
+  // 模組載入完成時:對「目前 active slide」跑動畫(可能是 hash 跳轉到 #N 的 slide,
+  // 也可能是 idx=0)。這樣 hash 直接導到非首頁時也能觸發動畫 + 保險絲。
+  window.__playSlide(typeof idx === 'number' ? idx : 0);
 }
 </script>
 </body>
