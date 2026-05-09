@@ -893,9 +893,19 @@ function toggleOverview(){
   else{ov.style.display='none';}
 }
 
+// 判斷事件是否來自表單元素（input / textarea / select / contenteditable）
+// 避免輸入法選字時的方向鍵 / 空白鍵 / 捲動誤觸翻頁
+function _isFormTarget(t){
+  if(!t || !t.matches) return false;
+  return t.matches('input,textarea,select,button,[contenteditable]') || !!t.closest('form,.contact-form');
+}
+
 addEventListener('keydown',e=>{
   if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}
   if(overviewOn)return;
+  // 表單欄位內 / IME 組字中 → 不攔事件、讓輸入法正常運作
+  if(_isFormTarget(e.target)) return;
+  if(e.isComposing || e.keyCode === 229) return;
   if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){
     if(window.__pipeAdvance && window.__pipeAdvance()) return;
     go(idx+1);
@@ -908,6 +918,8 @@ addEventListener('keydown',e=>{
 
 let wheelTO=null,wheelAcc=0;
 addEventListener('wheel',e=>{
+  // 表單區域內 / 可垂直捲動的元素 → 讓原生捲動，不翻頁
+  if(_isFormTarget(e.target)) return;
   wheelAcc+=e.deltaY+e.deltaX;
   if(Math.abs(wheelAcc)>50){
     if(wheelAcc>0 && window.__pipeAdvance && window.__pipeAdvance()){
@@ -919,9 +931,13 @@ addEventListener('wheel',e=>{
   clearTimeout(wheelTO);wheelTO=setTimeout(()=>wheelAcc=0,150);
 },{passive:true});
 
-let tx=0,ty=0;
-addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+let tx=0,ty=0,_touchOnForm=false;
+addEventListener('touchstart',e=>{
+  _touchOnForm=_isFormTarget(e.target);
+  tx=e.touches[0].clientX;ty=e.touches[0].clientY;
+},{passive:true});
 addEventListener('touchend',e=>{
+  if(_touchOnForm) return;
   const dx=(e.changedTouches[0].clientX-tx);
   const dy=(e.changedTouches[0].clientY-ty);
   if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){
