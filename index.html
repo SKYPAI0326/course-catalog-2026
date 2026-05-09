@@ -52,13 +52,13 @@
   .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:max(11px,.78vw);letter-spacing:.18em;text-transform:uppercase;opacity:.5}
 
   .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-bottom:2.6vh}
-  .lead{font-family:var(--serif-zh);font-weight:400;font-size:1.75vw;line-height:1.5;opacity:.86}
+  .lead{font-family:var(--serif-zh);font-weight:400;font-size:clamp(16px,1.75vw,28px);line-height:1.55;opacity:.86}
   .meta-row{display:flex;gap:1.2em;align-items:baseline;flex-wrap:wrap;font-family:var(--mono);font-size:max(12px,.92vw);letter-spacing:.16em;text-transform:uppercase;opacity:.6}
 
-  .h-hero{font-family:var(--serif-zh);font-weight:900;font-size:10vw;line-height:.96;letter-spacing:-.02em}
-  .h-xl{font-family:var(--serif-zh);font-weight:700;font-size:6.2vw;line-height:1.08;letter-spacing:-.01em}
-  .h-sub{font-family:var(--serif-zh);font-weight:500;font-size:3.1vw;line-height:1.25;opacity:.7}
-  .h-md{font-family:var(--serif-zh);font-weight:600;font-size:2.3vw;line-height:1.3}
+  .h-hero{font-family:var(--serif-zh);font-weight:900;font-size:clamp(54px,10vw,160px);line-height:.96;letter-spacing:-.02em}
+  .h-xl{font-family:var(--serif-zh);font-weight:700;font-size:clamp(36px,6.2vw,100px);line-height:1.08;letter-spacing:-.01em}
+  .h-sub{font-family:var(--serif-zh);font-weight:500;font-size:clamp(22px,3.1vw,50px);line-height:1.25;opacity:.7}
+  .h-md{font-family:var(--serif-zh);font-weight:600;font-size:clamp(19px,2.3vw,36px);line-height:1.3}
 
   /* ---- frame ---- */
   .frame{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
@@ -74,11 +74,11 @@
   /* ---- stat-card ---- */
   .stat-card{display:flex;flex-direction:column;gap:.8vh;align-items:flex-start;padding-top:1.6vh;border-top:1px solid currentColor;border-color:rgba(127,127,127,.3)}
   .stat-card .stat-label{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.24em;text-transform:uppercase;opacity:.55}
-  .stat-card .stat-nb{font-family:var(--serif-en);font-weight:800;font-size:5.8vw;line-height:.9;letter-spacing:-.03em;font-feature-settings:"tnum";margin-top:.4vh}
+  .stat-card .stat-nb{font-family:var(--serif-en);font-weight:800;font-size:clamp(40px,5.8vw,92px);line-height:.9;letter-spacing:-.03em;font-feature-settings:"tnum";margin-top:.4vh}
   .stat-card .stat-nb .stat-unit{font-family:var(--serif-zh);font-weight:500;font-size:.38em;letter-spacing:0;opacity:.72;margin-left:.14em}
   .stat-card .stat-note{font-family:var(--sans-zh);font-weight:400;font-size:max(13px,1.05vw);line-height:1.5;opacity:.72;margin-top:.6vh}
-  .grid-4 .stat-card .stat-nb{font-size:5vw}
-  .grid-3 .stat-card .stat-nb{font-size:6.8vw}
+  .grid-4 .stat-card .stat-nb{font-size:clamp(36px,5vw,80px)}
+  .grid-3 .stat-card .stat-nb{font-size:clamp(44px,6.8vw,108px)}
 
   /* ---- pipeline ---- */
   .pipeline-section{margin-top:4.4vh;padding-top:2.8vh;border-top:1px dashed rgba(127,127,127,.32)}
@@ -89,13 +89,13 @@
   .pipeline[data-cols="4"]{grid-template-columns:repeat(4,1fr)}
   .pipeline[data-cols="6"]{grid-template-columns:repeat(6,1fr)}
   .step{display:flex;flex-direction:column;gap:.8vh;padding-top:1.4vh;border-top:1px solid currentColor;border-color:rgba(127,127,127,.35)}
-  .step-nb{font-family:var(--serif-en);font-style:italic;font-weight:500;font-size:1.15vw;opacity:.45}
-  .step-title{font-family:var(--sans-zh);font-weight:700;font-size:1.55vw;letter-spacing:.01em;line-height:1.2}
+  .step-nb{font-family:var(--serif-en);font-style:italic;font-weight:500;font-size:clamp(11px,1.15vw,18px);opacity:.45}
+  .step-title{font-family:var(--sans-zh);font-weight:700;font-size:clamp(15px,1.55vw,24px);letter-spacing:.01em;line-height:1.2}
   .step-desc{font-family:var(--sans-zh);font-weight:400;font-size:max(12px,.95vw);line-height:1.45;opacity:.72}
 
   /* ---- pillar ---- */
   .pillar{display:flex;flex-direction:column;gap:1.4vh}
-  .pillar .t{font-family:var(--serif-zh);font-weight:700;font-size:2vw;line-height:1.15}
+  .pillar .t{font-family:var(--serif-zh);font-weight:700;font-size:clamp(18px,2vw,32px);line-height:1.2}
   .pillar .d{font-family:var(--sans-zh);font-weight:400;font-size:max(13px,1.05vw);opacity:.78;line-height:1.65}
   .pillar ul{margin-top:.4vh;padding-left:1.1em;display:flex;flex-direction:column;gap:.8vh;font-family:var(--sans-zh);font-size:max(13px,1vw);line-height:1.55;opacity:.82}
 
@@ -107,7 +107,7 @@
 
   /* ---- partner-card ---- */
   .partner-card{display:flex;flex-direction:column;gap:.6vh;padding:2vh 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.32)}
-  .partner-card .name{font-family:var(--serif-zh);font-weight:700;font-size:1.9vw;line-height:1.2}
+  .partner-card .name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(18px,1.9vw,30px);line-height:1.25}
   .partner-card .program{font-family:var(--sans-zh);font-weight:400;font-size:max(13px,1.02vw);opacity:.78;line-height:1.55}
   .partner-card .tag{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55;margin-bottom:.4vh}
 
@@ -130,12 +130,24 @@
   body.motion-ready [data-animate="pipeline"] [data-anim]{opacity:.15}
 
   @media (max-width:900px){
-    .h-hero{font-size:14vw}
-    .h-xl{font-size:9vw}
     .pipeline{grid-template-columns:repeat(2,1fr)}
     .grid-2-7-5,.grid-2-6-6,.grid-2-8-4{grid-template-columns:1fr}
-    .grid-6{grid-template-columns:repeat(2,1fr)}
-    .grid-4{grid-template-columns:1fr}
+    .grid-6{grid-template-columns:repeat(2,1fr);gap:3vh 4vw}
+    .grid-4{grid-template-columns:1fr;grid-template-rows:auto;gap:1.8vh 0;align-content:start}
+    .grid-3{grid-template-columns:1fr;gap:2vh 0;align-content:start}
+    .grid-3-3{grid-template-columns:repeat(2,1fr)}
+    .slide{padding:4vh 5vw 8vh 5vw}
+    .frame{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-right:1vw;scrollbar-width:thin}
+    .frame[style*="padding-top:6vh"],.frame[style*="padding-top:5vh"]{padding-top:2vh !important}
+    .frame[style*="margin-top:6vh"]{margin-top:3vh !important}
+    .grid-4 .stat-card .stat-nb,.grid-3 .stat-card .stat-nb{font-size:clamp(30px,6.4vw,48px)}
+    .stat-card{padding-top:1.2vh}
+    .stat-card .stat-note{margin-top:.4vh}
+  }
+  @media (max-width:600px){
+    .pipeline{grid-template-columns:1fr}
+    .grid-6{grid-template-columns:1fr;gap:2.4vh 0}
+    .grid-3-3{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -157,7 +169,7 @@
     <div class="kicker" data-anim>對外提案 · For Partners</div>
     <h1 class="h-hero" data-anim>課程資源庫</h1>
     <h2 class="h-sub" data-anim>Course Catalog · 2026</h2>
-    <p class="lead" style="max-width:62vw" data-anim>
+    <p class="lead" style="max-width:min(720px,92vw)" data-anim>
       從 3 小時入門到 140 小時職訓，五大主題、十五門課，<br>
       可按時數、客群、情境自由重組。
     </p>
@@ -180,7 +192,7 @@
   <div class="frame" style="padding-top:6vh">
     <div class="kicker" data-anim>整體規模</div>
     <h2 class="h-xl" data-anim>我們的課程資源庫</h2>
-    <p class="lead" style="max-width:60vw; margin-top:2vh" data-anim>
+    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh" data-anim>
       已建置完成、可立即提供。
     </p>
 
@@ -221,8 +233,8 @@
   </div>
   <div class="frame" style="display:grid; gap:6vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>Act I · Themes</div>
-    <h1 class="h-hero" style="font-size:8.5vw" data-anim>五大主題</h1>
-    <p class="lead" style="max-width:60vw" data-anim>
+    <h1 class="h-hero" style="font-size:clamp(48px,8.5vw,136px)" data-anim>五大主題</h1>
+    <p class="lead" style="max-width:min(700px,92vw)" data-anim>
       生成式 AI 工具實戰 · AI 認證輔導 · 數位行銷 · 自動化工作流 · AI 商業圖像
     </p>
   </div>
@@ -241,7 +253,7 @@
   <div class="frame">
     <div class="kicker">時數光譜 · Spectrum</div>
     <h2 class="h-xl">生成式 AI 工具實戰</h2>
-    <p class="lead" style="max-width:62vw; margin-top:2vh">
+    <p class="lead" style="max-width:min(720px,92vw); margin-top:2vh">
       最完整的時數光譜：從一天上手到完整職訓，<br>
       同一套核心知識按客群與深度重新節奏化。
     </p>
@@ -292,7 +304,7 @@
   <div class="frame" style="padding-top:5vh">
     <div class="kicker" data-anim>Building Blocks · 可組合模組</div>
     <h2 class="h-xl" data-anim>六大教學模組</h2>
-    <p class="lead" style="max-width:60vw; margin-top:2vh; margin-bottom:4vh" data-anim>
+    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh; margin-bottom:4vh" data-anim>
       任何時數方案都從這六塊裡重組。
     </p>
 
@@ -339,7 +351,7 @@
     <div>
       <div class="kicker" data-anim>兩種考照路徑</div>
       <h2 class="h-xl" data-anim>AI 認證考試輔導</h2>
-      <p class="lead" style="margin-top:3vh; max-width:38vw" data-anim>
+      <p class="lead" style="margin-top:3vh; max-width:min(440px,90vw)" data-anim>
         為學校、企業 HR、職訓單位提供認證準備班。<br>
         可依需求調整為一日衝刺、三日密集或週末班。
       </p>
@@ -380,7 +392,7 @@
     <div>
       <div class="kicker" data-anim>兩條學程路線</div>
       <h2 class="h-xl" data-anim>數位行銷 × 網站數據</h2>
-      <p class="lead" style="margin-top:3vh; max-width:38vw" data-anim>
+      <p class="lead" style="margin-top:3vh; max-width:min(440px,90vw)" data-anim>
         從消費者心理到數據閉環的完整體系。<br>
         可整段交付，也可拆模組為 1–2 日專題工作坊。
       </p>
@@ -466,13 +478,13 @@
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>The Principle</div>
-    <blockquote style="font-family:var(--serif-zh); font-weight:700; font-size:6.4vw; line-height:1.18; letter-spacing:-.01em; max-width:78vw">
+    <blockquote style="font-family:var(--serif-zh); font-weight:700; font-size:clamp(36px,6.4vw,102px); line-height:1.18; letter-spacing:-.01em; max-width:min(78vw,900px)">
       <span data-anim="line" style="display:block">我們不賣標準品。</span>
       <span data-anim="line" style="display:block; opacity:.62; font-weight:500; font-size:.62em; margin-top:2vh">
         時數可裁切、客群可貼合、情境可重組。
       </span>
     </blockquote>
-    <p class="lead" style="max-width:55vw; opacity:.65" data-anim>
+    <p class="lead" style="max-width:min(640px,90vw); opacity:.65" data-anim>
       We don't sell off-the-shelf courses.<br>
       Hours, audiences, contexts—everything is recomposable.
     </p>
@@ -495,7 +507,7 @@
   <div class="frame" style="padding-top:5vh">
     <div class="kicker" data-anim>四種貼合機制</div>
     <h2 class="h-xl" data-anim>客製化路徑</h2>
-    <p class="lead" style="max-width:60vw; margin-top:2vh" data-anim>
+    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh" data-anim>
       不是把標準課改色改 logo——<br>
       是按你的客群、時數、情境重新節奏化。
     </p>
@@ -503,22 +515,22 @@
     <div class="grid-4" style="margin-top:5vh">
       <div class="stat-card" data-anim>
         <div class="stat-label">01 · Hours</div>
-        <div class="stat-nb" style="font-size:3.6vw; font-family:var(--serif-zh); font-weight:700">時數可裁切</div>
+        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">時數可裁切</div>
         <div class="stat-note">3h 入門到 140h 職訓範圍內重組；已建置 9+ 種時數版本</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">02 · Audience</div>
-        <div class="stat-nb" style="font-size:3.6vw; font-family:var(--serif-zh); font-weight:700">客群可貼合</div>
+        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">客群可貼合</div>
         <div class="stat-note">大學生 · 上班族 · 公部門 · 創業者四類講法已驗證</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">03 · Delivery</div>
-        <div class="stat-nb" style="font-size:3.6vw; font-family:var(--serif-zh); font-weight:700">教材完整交付</div>
+        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">教材完整交付</div>
         <div class="stat-note">HTML 講義網站，手機平板可閱讀；附可帶走 deliverable</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">04 · Context</div>
-        <div class="stat-nb" style="font-size:3.6vw; font-family:var(--serif-zh); font-weight:700">情境可重組</div>
+        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">情境可重組</div>
         <div class="stat-note">行業情境替換；不限定產業 · 通用 PRAC 框架可換素材</div>
       </div>
     </div>
@@ -588,13 +600,13 @@
     <div class="kicker" data-anim>Next Step</div>
     <h1 class="h-hero" data-anim>開始合作</h1>
     <h2 class="h-sub" data-anim>Let's design a course that fits.</h2>
-    <p class="lead" style="max-width:62vw" data-anim>
+    <p class="lead" style="max-width:min(720px,92vw)" data-anim>
       告訴我們客群、時數與目標，<br>
       我們從現有資源庫重組出最貼合的方案。
     </p>
     <div data-anim style="margin-top:2vh">
       <div class="kicker" style="margin-bottom:1.4vh; opacity:.55">Contact · 聯繫信箱</div>
-      <a href="mailto:sky8697@gmail.com?subject=課程合作洽談" style="font-family:var(--serif-zh); font-weight:600; font-size:3vw; line-height:1.1; color:inherit; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:.1em">
+      <a href="mailto:sky8697@gmail.com?subject=課程合作洽談" style="font-family:var(--serif-zh); font-weight:600; font-size:clamp(20px,3vw,48px); line-height:1.15; color:inherit; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:.1em; word-break:break-all">
         sky8697@gmail.com
       </a>
     </div>

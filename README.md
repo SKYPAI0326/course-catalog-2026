@@ -14,6 +14,13 @@
 
 ![CTA · 開始合作](docs/preview-cta.png)
 
+### 手機版
+
+<p>
+  <img src="docs/preview-mobile-cover.png" alt="Mobile · Cover" width="280">
+  <img src="docs/preview-mobile-overview.png" alt="Mobile · Overview" width="280">
+</p>
+
 ---
 
 ## 聯繫
@@ -55,6 +62,8 @@
 - Motion One 動效（CDN）
 - Lucide icons / Google Fonts（Noto Serif TC + Playfair + Inter）
 - 主題色：🌊 靛蓝瓷
+- **流體字級**：所有字級用 `clamp(min, Nvw, max)`，桌機/平板/手機自動縮放
+- **手機優化**：媒體查詢分 900px / 600px 兩段；grid 收疊、frame 內捲動避免溢出
 
 ## 來源
 
