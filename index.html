@@ -129,6 +129,28 @@
     .level-courses{margin-top:.4vh}
   }
 
+  /* contact-form：CTA 頁聯繫表單 */
+  .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:1.6vh 2vw;max-width:min(820px,94vw)}
+  .contact-form .full{grid-column:1/-1}
+  .contact-form label{display:flex;flex-direction:column;gap:.5vh;font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+  .contact-form .req::after{content:' *';opacity:.6}
+  .contact-form input,.contact-form select,.contact-form textarea{font-family:var(--sans-zh);font-size:max(14px,1.05vw);padding:.9vh 1vw;background:rgba(var(--paper-rgb),.06);border:1px solid rgba(var(--paper-rgb),.18);color:inherit;border-radius:3px;outline:none;transition:border-color .2s,background .2s;letter-spacing:.01em}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:rgba(var(--paper-rgb),.55);background:rgba(var(--paper-rgb),.1)}
+  .contact-form textarea{resize:vertical;min-height:9vh;font-family:var(--sans-zh)}
+  .contact-form select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 1.4vw) 50%,calc(100% - 1vw) 50%;background-size:.4vw .4vw;background-repeat:no-repeat;padding-right:2.6vw}
+  .contact-form select option{background:var(--ink);color:var(--paper)}
+  .slide.light .contact-form input,.slide.light .contact-form select,.slide.light .contact-form textarea{background:rgba(var(--ink-rgb),.04);border-color:rgba(var(--ink-rgb),.18)}
+  .slide.light .contact-form select option{background:var(--paper);color:var(--ink)}
+  .contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .contact-form-actions{display:flex;align-items:center;gap:1.6vw;margin-top:1.4vh;flex-wrap:wrap}
+  .contact-form button{font-family:var(--mono);font-size:max(11px,.88vw);letter-spacing:.2em;text-transform:uppercase;padding:1.2vh 2.2vw;background:transparent;border:1px solid currentColor;color:inherit;cursor:pointer;transition:background .2s,color .2s}
+  .contact-form button:hover{background:currentColor;color:var(--ink)}
+  .slide.light .contact-form button:hover{color:var(--paper)}
+  .contact-form button:disabled{opacity:.5;cursor:wait;background:transparent !important;color:inherit !important}
+  .form-status{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .3s;line-height:1.5}
+  .form-status.show{opacity:.85}
+  .form-status.error{color:#ff8a80}
+
   /* feature-card：單課程詳述頁用（Page 應用設計、圖像、自動化）*/
   .feature-card{padding:3.2vh 2.2vw;border:1px solid currentColor;border-color:rgba(127,127,127,.35);border-radius:6px;display:flex;flex-direction:column;gap:1.6vh}
   .slide.dark .feature-card{background:rgba(var(--paper-rgb),.04)}
@@ -629,32 +651,65 @@
   </div>
 </section>
 
-<!-- =============== Page 12 · CTA =============== -->
-<section class="slide hero dark">
+<!-- =============== Page 12 · CTA + 表單 =============== -->
+<section class="slide dark">
   <div class="chrome">
     <div>Next Step · Let's Talk</div>
     <div>12 / 12</div>
   </div>
-  <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
-    <div class="kicker" data-anim>Next Step</div>
-    <h1 class="h-hero" data-anim>開始合作</h1>
-    <h2 class="h-sub" data-anim>Let's design a course that fits.</h2>
-    <p class="lead" style="max-width:min(720px,92vw)" data-anim>
-      告訴我們客群、時數與目標，<br>
-      我們從現有資源庫重組出最貼合的方案。
+  <div class="frame" style="padding-top:2vh">
+    <div class="kicker" data-anim>Next Step · 開始合作</div>
+    <h2 class="h-xl" style="font-size:clamp(32px,5.4vw,86px)" data-anim>Let's design a course that fits.</h2>
+    <p class="lead" style="margin-top:1.4vh; margin-bottom:2.4vh; max-width:min(720px,92vw)" data-anim>
+      告訴我們客群、時數與目標——以下表單填寫後直接寄到我們信箱。
     </p>
-    <div data-anim style="margin-top:2vh">
-      <div class="kicker" style="margin-bottom:1.4vh; opacity:.55">Contact · 聯繫信箱</div>
-      <a href="mailto:sky8697@gmail.com?subject=課程合作洽談" style="font-family:var(--serif-zh); font-weight:600; font-size:clamp(20px,3vw,48px); line-height:1.15; color:inherit; text-decoration:none; border-bottom:1px solid currentColor; padding-bottom:.1em; word-break:break-all">
-        sky8697@gmail.com
-      </a>
-    </div>
-    <div class="meta-row" data-anim>
-      <span>弄一下工作室</span><span>·</span><span>2026</span><span>·</span><span>Course Catalog</span>
+
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mdabwvga" method="POST" data-anim>
+      <label>
+        <span class="req">機構名稱</span>
+        <input type="text" name="organization" required placeholder="公司／學校／部門">
+      </label>
+      <label>
+        <span class="req">聯絡人姓名</span>
+        <input type="text" name="name" required placeholder="您的稱謂">
+      </label>
+      <label>
+        <span class="req">Email</span>
+        <input type="email" name="email" required placeholder="回覆用聯絡信箱">
+      </label>
+      <label>
+        <span class="req">想了解的方向</span>
+        <select name="direction" required>
+          <option value="">請選擇</option>
+          <option value="GenAI 通用">生成式 AI · 通用</option>
+          <option value="GenAI 應用程式設計">生成式 AI · 應用程式設計</option>
+          <option value="GenAI 商業圖像">生成式 AI · 商業圖像生成</option>
+          <option value="AI 認證">AI 認證輔導</option>
+          <option value="數位行銷">數位行銷 × 網站數據</option>
+          <option value="自動化">自動化工作流</option>
+          <option value="未確定 / 其他">尚未確定 / 其他</option>
+        </select>
+      </label>
+      <label class="full">
+        <span class="req">簡述需求或時數規模</span>
+        <textarea name="message" required rows="3" placeholder="例：上班族 18h 系統性入門、學生 30h 認證輔導、企業 6h 工作坊⋯"></textarea>
+      </label>
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="[Course Catalog] 機構合作洽詢">
+      <div class="contact-form-actions full">
+        <button type="submit">送出洽詢</button>
+        <div class="form-status" id="form-status"></div>
+      </div>
+    </form>
+
+    <div class="meta-row" data-anim style="margin-top:2.4vh">
+      <span>或直接寄信</span><span>·</span>
+      <a href="mailto:sky8697@gmail.com?subject=課程合作洽談" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.1em">sky8697@gmail.com</a>
+      <span>·</span><span>弄一下工作室 · 2026</span>
     </div>
   </div>
   <div class="foot">
-    <div>Thank you · sky8697@gmail.com</div>
+    <div>Thank you</div>
     <div>— Fin —</div>
   </div>
 </section>
@@ -881,6 +936,44 @@ addEventListener('hashchange',()=>{const n=parseInt(location.hash.replace('#',''
 </script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script>lucide.createIcons();</script>
+
+<script>
+// 聯繫表單：fetch 提交到 Formspree，頁面內顯示送出狀態
+(()=>{
+  const form = document.getElementById('contact-form');
+  if(!form) return;
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    btn.disabled = true;
+    status.textContent = '送出中⋯';
+    status.className = 'form-status show';
+    try {
+      const r = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (r.ok) {
+        status.textContent = '✓ 已送出，我們會儘快回覆';
+        status.className = 'form-status show';
+        form.reset();
+      } else {
+        const d = await r.json().catch(()=>({}));
+        const msg = (d.errors||[]).map(x=>x.message).join('、') || '送出失敗，請改寄 sky8697@gmail.com';
+        status.textContent = '⚠ ' + msg;
+        status.className = 'form-status show error';
+      }
+    } catch(_) {
+      status.textContent = '⚠ 網路錯誤，請改寄 sky8697@gmail.com';
+      status.className = 'form-status show error';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 
 <script type="module">
 const _staticMode = /[?&]static\b/.test(location.search);
