@@ -143,10 +143,10 @@
   .slide.light .contact-form select option{background:var(--paper);color:var(--ink)}
   .contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   .contact-form-actions{display:flex;align-items:center;gap:1.6vw;margin-top:1.4vh;flex-wrap:wrap}
-  .contact-form button{font-family:var(--mono);font-size:max(11px,.88vw);letter-spacing:.2em;text-transform:uppercase;padding:1.2vh 2.2vw;background:transparent;border:1px solid currentColor;color:inherit;cursor:pointer;transition:background .2s,color .2s}
-  .contact-form button:hover{background:currentColor;color:var(--ink)}
-  .slide.light .contact-form button:hover{color:var(--paper)}
-  .contact-form button:disabled{opacity:.5;cursor:wait;background:transparent !important;color:inherit !important}
+  .contact-form button{font-family:var(--mono);font-size:max(11px,.88vw);letter-spacing:.2em;text-transform:uppercase;padding:1.2vh 2.2vw;background:transparent;border:1px solid currentColor;color:inherit;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+  .slide.dark .contact-form button:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .slide.light .contact-form button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .contact-form button:disabled{opacity:.5;cursor:wait;background:transparent !important;color:inherit !important;border-color:currentColor !important}
   .form-status{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .3s;line-height:1.5}
   .form-status.show{opacity:.85}
   .form-status.error{color:#ff8a80}
