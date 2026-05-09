@@ -1,0 +1,8 @@
+.DS_Store
+*.icloud
+.Trashes
+.Spotlight-V100
+.fseventsd
+node_modules/
+.vscode/
+.idea/
