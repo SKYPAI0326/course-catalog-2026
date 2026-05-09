@@ -105,11 +105,18 @@
   .slide.dark .callout{background:rgba(var(--paper-rgb),.06)}
   .callout-src{display:block;margin-top:1.6vh;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
 
-  /* ---- partner-card ---- */
-  .partner-card{display:flex;flex-direction:column;gap:.6vh;padding:2vh 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.32)}
-  .partner-card .name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(18px,1.9vw,30px);line-height:1.25}
-  .partner-card .program{font-family:var(--sans-zh);font-weight:400;font-size:max(13px,1.02vw);opacity:.78;line-height:1.55}
-  .partner-card .tag{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55;margin-bottom:.4vh}
+  /* ---- partner-card / course-line（共用樣式：列表式條目）---- */
+  .partner-card,.course-line{display:flex;flex-direction:column;gap:.6vh;padding:1.8vh 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.32)}
+  .partner-card .name,.course-line .name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(17px,1.85vw,28px);line-height:1.3}
+  .partner-card .program,.course-line .desc{font-family:var(--sans-zh);font-weight:400;font-size:clamp(13px,1.05vw,17px);opacity:.78;line-height:1.6}
+  .partner-card .tag,.course-line .tag{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55;margin-bottom:.4vh}
+  /* feature-card：單課程詳述頁用（Page 應用設計、圖像、自動化）*/
+  .feature-card{padding:3.2vh 2.2vw;border:1px solid currentColor;border-color:rgba(127,127,127,.35);border-radius:6px;display:flex;flex-direction:column;gap:1.6vh}
+  .slide.dark .feature-card{background:rgba(var(--paper-rgb),.04)}
+  .slide.light .feature-card{background:rgba(var(--ink-rgb),.03)}
+  .feature-card .name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(22px,2.6vw,42px);line-height:1.2}
+  .feature-card .desc{font-family:var(--sans-zh);font-weight:400;font-size:clamp(14px,1.15vw,20px);line-height:1.7;opacity:.85}
+  .feature-card .tools{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:.6vh}
 
   /* ---- nav ---- */
   #nav{position:fixed;left:50%;bottom:2.6vh;transform:translateX(-50%);z-index:30;display:flex;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -183,298 +190,302 @@
   </div>
 </section>
 
-<!-- =============== Page 2 · 概覽數據 =============== -->
+<!-- =============== Page 2 · 主題地圖 =============== -->
 <section class="slide hero light">
   <div class="chrome">
-    <div>At a Glance · 整體規模</div>
-    <div>02 / 12</div>
+    <div>Course Map · 主題地圖</div>
+    <div>02 / 11</div>
   </div>
-  <div class="frame" style="padding-top:6vh">
-    <div class="kicker" data-anim>整體規模</div>
-    <h2 class="h-xl" data-anim>我們的課程資源庫</h2>
-    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh" data-anim>
-      已建置完成、可立即提供。
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>Course Map · 一頁一方向</div>
+    <h2 class="h-xl" data-anim>六個方向</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(720px,92vw)" data-anim>
+      生成式 AI 是核心、再分三條軸；<br>
+      認證、數位行銷、自動化三線各自獨立。
     </p>
 
-    <div class="grid-4" style="margin-top:6vh">
-      <div class="stat-card" data-anim>
-        <div class="stat-label">Courses</div>
-        <div class="stat-nb">15 <span class="stat-unit">門</span></div>
-        <div class="stat-note">已完整建置教材，網站可閱讀</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">Themes</div>
-        <div class="stat-nb">5 <span class="stat-unit">大主題</span></div>
-        <div class="stat-note">AI 工具 / 認證 / 行銷 / 自動化 / 圖像</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">Hours</div>
-        <div class="stat-nb">3<span style="font-size:.6em">h</span>—140<span style="font-size:.6em">h</span></div>
-        <div class="stat-note">同主題多時數版本貼合不同客群</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">Partners</div>
-        <div class="stat-nb">5<span style="font-size:.6em">+</span></div>
-        <div class="stat-note">大學、政府、職訓、企業內訓</div>
-      </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1vh 4vw; max-width:min(960px,94vw)">
+      <div class="course-line" data-anim><div class="tag">01 · GenAI</div><div class="name">生成式 AI · 通用</div><div class="desc">提示詞工程 + 文書 / 知識管理 + 工作流整合</div></div>
+      <div class="course-line" data-anim><div class="tag">02 · GenAI</div><div class="name">生成式 AI · 應用程式設計</div><div class="desc">不寫程式，用 AI 做出可運行的網頁應用</div></div>
+      <div class="course-line" data-anim><div class="tag">03 · GenAI</div><div class="name">生成式 AI · 商業圖像生成</div><div class="desc">AI 設計流水線 PM 思維，不教 PS / Figma</div></div>
+      <div class="course-line" data-anim><div class="tag">04 · Cert</div><div class="name">AI 認證輔導</div><div class="desc">CCS 國際認證 + iPAS 國家級認證</div></div>
+      <div class="course-line" data-anim><div class="tag">05 · Marketing</div><div class="name">數位行銷 × 網站數據</div><div class="desc">SEO / GA4 / GTM / 廣告 / Looker Studio 完整資料閉環</div></div>
+      <div class="course-line" data-anim><div class="tag">06 · Automation</div><div class="name">自動化工作流</div><div class="desc">用 n8n 補上 Make 做不到的：大量資料、本機檔案</div></div>
     </div>
   </div>
   <div class="foot">
-    <div>截至 2026.05 · 持續擴充中</div>
-    <div>Page 02 · Catalog Scale</div>
+    <div>六個方向各成一頁</div>
+    <div>Page 02 · Map</div>
   </div>
 </section>
 
-<!-- =============== Page 3 · 五大主題章節幕封 =============== -->
-<section class="slide hero dark">
-  <div class="chrome">
-    <div>Themes Map · 主題索引</div>
-    <div>Act I · 03 / 12</div>
-  </div>
-  <div class="frame" style="display:grid; gap:6vh; align-content:center; min-height:80vh">
-    <div class="kicker" data-anim>Act I · Themes</div>
-    <h1 class="h-hero" style="font-size:clamp(48px,8.5vw,136px)" data-anim>五大主題</h1>
-    <p class="lead" style="max-width:min(700px,92vw)" data-anim>
-      生成式 AI 工具實戰 · AI 認證輔導 · 數位行銷 · 自動化工作流 · AI 商業圖像
-    </p>
-  </div>
-  <div class="foot">
-    <div>第一幕 · 主題索引</div>
-    <div>— · —</div>
-  </div>
-</section>
-
-<!-- =============== Page 4 · 主題 1 時數光譜 (pipeline) =============== -->
+<!-- =============== Page 3 · 生成式 AI · 通用 =============== -->
 <section class="slide light">
   <div class="chrome">
-    <div>Theme I · 生成式 AI 工具</div>
-    <div>04 / 12</div>
+    <div>GenAI · General · 通用方向</div>
+    <div>03 / 11</div>
   </div>
-  <div class="frame">
-    <div class="kicker">時數光譜 · Spectrum</div>
-    <h2 class="h-xl">生成式 AI 工具實戰</h2>
-    <p class="lead" style="max-width:min(720px,92vw); margin-top:2vh">
-      最完整的時數光譜：從一天上手到完整職訓，<br>
-      同一套核心知識按客群與深度重新節奏化。
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>Direction 01 · GenAI General</div>
+    <h2 class="h-xl" data-anim>生成式 AI · 通用</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(800px,92vw)" data-anim>
+      職場 AI 工具與提示詞工程的完整體系。<br>
+      文書、知識管理、工作流整合——所有人都用得上的核心。
     </p>
 
-    <div class="pipeline-section">
-      <div class="pipeline-label">時數階梯 · 由短至長</div>
-      <div class="pipeline">
-        <div class="step" data-anim="step">
-          <div class="step-nb">01 · 3h</div>
-          <div class="step-title">入門體驗</div>
-          <div class="step-desc">創業老闆 / 一人團隊<br>手機免費版即用</div>
-        </div>
-        <div class="step" data-anim="step">
-          <div class="step-nb">02 · 6h</div>
-          <div class="step-title">場景化速成</div>
-          <div class="step-desc">辦公室上班族 · 公部門交辦<br>三條場景化路線可選</div>
-        </div>
-        <div class="step" data-anim="step">
-          <div class="step-nb">03 · 12–18h</div>
-          <div class="step-title">系統性學習</div>
-          <div class="step-desc">非技術職場第一次系統學 AI<br>含零代碼工具開發</div>
-        </div>
-        <div class="step" data-anim="step">
-          <div class="step-nb">04 · 36h</div>
-          <div class="step-title">進階整合</div>
-          <div class="step-desc">上班族濃縮版<br>全面導入 AI 工作流</div>
-        </div>
-        <div class="step" data-anim="step">
-          <div class="step-nb">05 · 140h</div>
-          <div class="step-title">完整職訓</div>
-          <div class="step-desc">職訓中心 · 轉職學員<br>含 API / Make / n8n / 部署</div>
-        </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0 4vw; max-width:min(1100px,96vw)">
+      <div class="course-line" data-anim>
+        <div class="tag">01 · 入門</div>
+        <div class="name">創業 AI 實戰</div>
+        <div class="desc">創業老闆 / 一人團隊。手機免費版起步，30+ 則 Prompt 範本帶回家。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">02 · 速成</div>
+        <div class="name">辦公室 AI 工具實務應用</div>
+        <div class="desc">上班族不寫程式入門。週報、Email、簡報大綱三大文件加速。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">03 · 公部門</div>
+        <div class="name">從「問 AI」到「交辦 AI」</div>
+        <div class="desc">結構化 AI 交辦框架。零英文術語，全程通用任何行業情境。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">04 · 系統</div>
+        <div class="name">AI 實務全攻略</div>
+        <div class="desc">非技術職場系統性學 AI。文書 + 知識管理 + 零代碼工具開發六大模組。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">05 · 進階</div>
+        <div class="name">生成式 AI 工作應用班</div>
+        <div class="desc">上班族濃縮版。全面導入 AI 工作流，全程零代碼。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">06 · 完整</div>
+        <div class="name">生成式 AI 職訓實務應用班</div>
+        <div class="desc">完整職訓。含 API、Make、n8n、GitHub、Vercel 部署。</div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>由短至長 · 五階完整時數光譜</div>
-    <div>Page 04 · Theme I</div>
+    <div>六門課依時數與深度組合</div>
+    <div>Page 03 · GenAI General</div>
   </div>
 </section>
 
-<!-- =============== Page 5 · 主題 1 模組組合 =============== -->
+<!-- =============== Page 4 · 生成式 AI · 應用程式設計 =============== -->
 <section class="slide dark">
   <div class="chrome">
-    <div>Theme I · 可拆模組</div>
-    <div>05 / 12</div>
+    <div>GenAI · App Building · 應用程式設計</div>
+    <div>04 / 11</div>
   </div>
   <div class="frame" style="padding-top:5vh">
-    <div class="kicker" data-anim>Building Blocks · 可組合模組</div>
-    <h2 class="h-xl" data-anim>六大教學模組</h2>
-    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh; margin-bottom:4vh" data-anim>
-      任何時數方案都從這六塊裡重組。
+    <div class="kicker" data-anim>Direction 02 · GenAI App Building</div>
+    <h2 class="h-xl" data-anim>生成式 AI · 應用程式設計</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:5vh; max-width:min(800px,92vw)" data-anim>
+      不寫一行程式碼，用 AI 從文字直接生成可運行的網頁應用。<br>
+      讓非技術職員也能做出解決工作痛點的小工具。
     </p>
 
-    <div class="grid-6" style="padding:0">
-      <div class="pillar" data-anim>
-        <div class="t">提示詞工程</div>
-        <div class="d">黃金公式 · System Prompt · 除錯</div>
-      </div>
-      <div class="pillar" data-anim>
-        <div class="t">文書與寫作自動化</div>
-        <div class="d">Email · 週報 · 提案 · 簡報大綱</div>
-      </div>
-      <div class="pillar" data-anim>
-        <div class="t">NotebookLM 知識管理</div>
-        <div class="d">領域專家腦 · 會議紀錄結構化</div>
-      </div>
-      <div class="pillar" data-anim>
-        <div class="t">多模態應用</div>
-        <div class="d">圖片 · PDF · 語音輸入處理</div>
-      </div>
-      <div class="pillar" data-anim>
-        <div class="t">零代碼工具開發</div>
-        <div class="d">倒數計時器 · 報價試算 · 查檢表</div>
-      </div>
-      <div class="pillar" data-anim>
-        <div class="t">個人 AI 工作系統</div>
-        <div class="d">指令資產庫 · 30 天落地計畫</div>
-      </div>
+    <div class="feature-card" data-anim style="max-width:min(900px,94vw)">
+      <div class="tag" style="font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55">Course</div>
+      <div class="name">Gemini 零代碼 AI 實戰課</div>
+      <div class="desc">每一單元帶走一個能解決工作痛點的小工具——倒數計時器、報價試算器、查檢表、KPI 追蹤牆。學員不寫一行程式碼，靠精準提示詞讓 AI 產出可分享的網頁應用。</div>
+      <div class="tools">Gemini · Gemini Canvas · Vercel</div>
     </div>
   </div>
   <div class="foot">
-    <div>核心模組可獨立成 1–2 日工作坊</div>
-    <div>Page 05 · Theme I · Modules</div>
+    <div>不寫程式做出可運行工具</div>
+    <div>Page 04 · GenAI App Building</div>
   </div>
 </section>
 
-<!-- =============== Page 6 · 主題 2 AI 認證 =============== -->
+<!-- =============== Page 5 · 生成式 AI · 商業圖像生成 =============== -->
 <section class="slide light">
   <div class="chrome">
-    <div>Theme II · 認證準備</div>
-    <div>06 / 12</div>
+    <div>GenAI · Imagery · 商業圖像</div>
+    <div>05 / 11</div>
   </div>
-  <div class="frame grid-2-6-6" style="padding-top:6vh">
-    <div>
-      <div class="kicker" data-anim>兩種考照路徑</div>
-      <h2 class="h-xl" data-anim>AI 認證考試輔導</h2>
-      <p class="lead" style="margin-top:3vh; max-width:min(440px,90vw)" data-anim>
-        為學校、企業 HR、職訓單位提供認證準備班。<br>
-        可依需求調整為一日衝刺、三日密集或週末班。
-      </p>
-      <div class="callout" style="margin-top:4vh" data-anim>
-        「題庫不只用背的，配 6 種提示詞技巧 + 4 個情境練習，學員考完還能用回工作。」
-        <div class="callout-src">— 教學設計原則</div>
-      </div>
-    </div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Direction 03 · GenAI Imagery</div>
+    <h2 class="h-xl" data-anim>生成式 AI · 商業圖像生成</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:5vh; max-width:min(800px,92vw)" data-anim>
+      建立 AI 設計流水線思維。不教 Photoshop / Figma 專業軟體。<br>
+      學的是怎麼下對需求、驗收 AI 產出、滾出可繼承的視覺骨架。
+    </p>
 
-    <div style="display:flex;flex-direction:column;gap:2.4vh">
-      <div class="partner-card" data-anim style="border-top-width:2px">
-        <div class="tag">Cert · 國際認證</div>
-        <div class="name">CCS GenAI Foundations</div>
-        <div class="program">Certiport 主辦 · 自學版（含 80 題模擬考、6 技巧 + 4 場景提示詞庫）</div>
-        <div class="program" style="opacity:.62">適合：大學在校生、想取得國際 AI 認證者</div>
-      </div>
-      <div class="partner-card" data-anim style="border-top-width:2px">
-        <div class="tag">Cert · 國內認證</div>
-        <div class="name">iPAS AI 應用規劃師初級</div>
-        <div class="program">經濟部產業發展署 + 工研院 · 30h（含模擬考）</div>
-        <div class="program" style="opacity:.62">適合：0 基礎職場人員（行銷／業務／HR／企劃／客服／營運）</div>
-      </div>
+    <div class="feature-card" data-anim style="max-width:min(900px,94vw)">
+      <div class="tag" style="font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55">Course</div>
+      <div class="name">商業用圖片生成</div>
+      <div class="desc">非設計科班、不需要 Figma / PS / AI 背景。學會把自己定位成「AI 設計流水線的產品經理」——讓 AI 做設計，你做需求判定、結構驗收、系列把關。產出粉專封面、活動視覺、簡報背景、產品圖庫等成系列商業物料。</div>
+      <div class="tools">ChatGPT · Gemini · Canva</div>
     </div>
   </div>
   <div class="foot">
-    <div>已驗證對象 · 淡江大學、經濟部相關職訓</div>
-    <div>Page 06 · Theme II</div>
+    <div>設計流水線 PM 思維</div>
+    <div>Page 05 · GenAI Imagery</div>
   </div>
 </section>
 
-<!-- =============== Page 7 · 主題 3 數位行銷 =============== -->
+<!-- =============== Page 6 · AI 認證輔導 =============== -->
 <section class="slide dark">
   <div class="chrome">
-    <div>Theme III · Digital Marketing</div>
-    <div>07 / 12</div>
+    <div>Certification · AI 認證</div>
+    <div>06 / 11</div>
   </div>
-  <div class="frame grid-2-6-6" style="padding-top:6vh">
-    <div>
-      <div class="kicker" data-anim>兩條學程路線</div>
-      <h2 class="h-xl" data-anim>數位行銷 × 網站數據</h2>
-      <p class="lead" style="margin-top:3vh; max-width:min(440px,90vw)" data-anim>
-        從消費者心理到數據閉環的完整體系。<br>
-        可整段交付，也可拆模組為 1–2 日專題工作坊。
-      </p>
-    </div>
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>Direction 04 · Certification</div>
+    <h2 class="h-xl" data-anim>AI 認證輔導</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(800px,92vw)" data-anim>
+      為學校、企業 HR、職訓單位提供認證準備班。<br>
+      可依需求調整為一日衝刺、三日密集或週末班。
+    </p>
 
-    <div style="display:flex;flex-direction:column;gap:3vh">
-      <div class="pillar" data-anim style="border-left:3px solid currentColor; padding-left:1.6vw">
-        <div class="kicker" style="margin-bottom:.8vh">弄一下路線</div>
-        <div class="t">完整體系版 · 70h</div>
-        <ul>
-          <li>10 模組 52 單元</li>
-          <li>整合 SEO / GA4 / GTM / 廣告 / Email / AI 行銷</li>
-          <li>另含 GTM 實務演練單點專題</li>
-        </ul>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3vh 4vw; max-width:min(1100px,96vw)">
+      <div class="course-line" data-anim style="border-top-width:2px">
+        <div class="tag">國際認證 · Certiport</div>
+        <div class="name">CCS GenAI Foundations 認證研習</div>
+        <div class="desc">通用 AI 知識認證。含 80 題模擬考、6 種提示詞技巧 + 4 個情境練習。考完還能用回工作。</div>
       </div>
-      <div class="pillar" data-anim style="border-left:3px solid currentColor; padding-left:1.6vw">
-        <div class="kicker" style="margin-bottom:.8vh">學期路線 · 共 60h</div>
-        <div class="t">大學兩學期版 · 30h × 2</div>
-        <ul>
-          <li>上學期：SEO × GA4（搜尋意圖到數據追蹤）</li>
-          <li>下學期：GTM × 廣告科技 × 資料交付</li>
-          <li>已於台北商業大學完整跑過</li>
-        </ul>
+      <div class="course-line" data-anim style="border-top-width:2px">
+        <div class="tag">國家級 · 經濟部 + 工研院</div>
+        <div class="name">iPAS AI 應用規劃師初級認證研習</div>
+        <div class="desc">經濟部 AI 認證。0 基礎友善，行銷／業務／HR／企劃／客服／營運皆適用。</div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>單點專題可彈性 6h–18h</div>
-    <div>Page 07 · Theme III</div>
+    <div>認證對象 · 學校 · 職訓 · 企業</div>
+    <div>Page 06 · Certification</div>
   </div>
 </section>
 
-<!-- =============== Page 8 · 主題 4+5 =============== -->
+<!-- =============== Page 7 · 數位行銷 × 網站數據 =============== -->
 <section class="slide light">
   <div class="chrome">
-    <div>Theme IV & V · Specialist</div>
-    <div>08 / 12</div>
+    <div>Digital Marketing · 數位行銷</div>
+    <div>07 / 11</div>
   </div>
-  <div class="frame" style="padding-top:6vh">
-    <div class="kicker" data-anim>兩個專業軌道</div>
-    <h2 class="h-xl" data-anim>自動化 · AI 圖像</h2>
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>Direction 05 · Digital Marketing</div>
+    <h2 class="h-xl" data-anim>數位行銷 × 網站數據</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(800px,92vw)" data-anim>
+      從消費者心理到數據閉環的完整體系。<br>
+      可整段交付，也可拆模組為 1–2 日專題工作坊。
+    </p>
 
-    <div class="grid-2-6-6" style="margin-top:5vh; gap:5vw 4vh">
-      <div data-anim style="padding:2vh 0; border-top:2px solid currentColor">
-        <div class="kicker" style="margin-bottom:1vh">Theme IV · Automation</div>
-        <div class="h-md" style="margin-bottom:2vh">自動化工作流</div>
-        <p style="font-family:var(--serif-zh); font-size:max(15px,1.2vw); line-height:1.5; opacity:.88; margin-bottom:2.4vh">
-          n8n 本機版實戰 · 9.5h
-        </p>
-        <ul style="padding-left:1.1em; display:flex; flex-direction:column; gap:1.1vh; font-family:var(--sans-zh); font-size:max(13px,1.05vw); line-height:1.55; opacity:.82">
-          <li>突破 Make 限制：無 ops 上限</li>
-          <li>本機檔案直接讀寫</li>
-          <li>Docker Desktop · n8n CE · Cloudflare Tunnel</li>
-          <li>適合：行銷企劃、知識工作者、工作室主理人</li>
-        </ul>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0 4vw; max-width:min(1100px,96vw)">
+      <div class="course-line" data-anim>
+        <div class="tag">完整體系</div>
+        <div class="name">數位行銷人才培訓</div>
+        <div class="desc">10 模組整合：消費者心理 → SEO → GA4 → GTM → 廣告 → Email → AI 行銷的完整資料閉環。</div>
       </div>
-      <div data-anim style="padding:2vh 0; border-top:2px solid currentColor">
-        <div class="kicker" style="margin-bottom:1vh">Theme V · Imagery</div>
-        <div class="h-md" style="margin-bottom:2vh">AI 商業圖像生成</div>
-        <p style="font-family:var(--serif-zh); font-size:max(15px,1.2vw); line-height:1.5; opacity:.88; margin-bottom:2.4vh">
-          商業用圖片生成 · 8h（可彈性拆分）
-        </p>
-        <ul style="padding-left:1.1em; display:flex; flex-direction:column; gap:1.1vh; font-family:var(--sans-zh); font-size:max(13px,1.05vw); line-height:1.55; opacity:.82">
-          <li>建立「AI 設計流水線 PM」思維</li>
-          <li>不教 PS / AI / Figma 專業軟體</li>
-          <li>工具：ChatGPT · Gemini · Canva</li>
-          <li>適合：小公司行銷、新創老闆、自媒體</li>
-        </ul>
+      <div class="course-line" data-anim>
+        <div class="tag">學期路線 · 上學期</div>
+        <div class="name">數位行銷實務｜SEO × GA4</div>
+        <div class="desc">從搜尋意圖、關鍵字研究、SEO 商業模式定位，到 GA4 五大區塊與本地站建置。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">學期路線 · 下學期</div>
+        <div class="name">數位行銷實務 II｜GTM × 廣告科技 × 資料交付</div>
+        <div class="desc">深入 GTM 埋碼、Meta／Google／LINE／TikTok 廣告追蹤、Consent Mode、Ecommerce、Looker Studio 交付。</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">單點專題</div>
+        <div class="name">GTM 實務演練</div>
+        <div class="desc">1–2 日工作坊：代碼／觸發條件／變數、表單追蹤、捲動深度、轉換追蹤實作。</div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>兩條軌道皆可 客製延伸</div>
-    <div>Page 08 · Theme IV & V</div>
+    <div>整段或單點皆可</div>
+    <div>Page 07 · Digital Marketing</div>
   </div>
 </section>
 
-<!-- =============== Page 9 · 客製化金句 =============== -->
-<section class="slide hero light" data-animate="quote">
+<!-- =============== Page 8 · 自動化工作流 =============== -->
+<section class="slide dark">
+  <div class="chrome">
+    <div>Automation · 自動化工作流</div>
+    <div>08 / 11</div>
+  </div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Direction 06 · Automation</div>
+    <h2 class="h-xl" data-anim>自動化工作流</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:5vh; max-width:min(800px,92vw)" data-anim>
+      補上 Make / Zapier 做不到的事——大量資料處理、本機檔案存取、AI 整合。<br>
+      給已熟自動化的進階使用者升級。
+    </p>
+
+    <div class="feature-card" data-anim style="max-width:min(900px,94vw)">
+      <div class="tag" style="font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.22em;text-transform:uppercase;opacity:.55">Course</div>
+      <div class="name">AI 資料工廠 — 大規模文件處理實戰</div>
+      <div class="desc">用 n8n 本機版（Docker Desktop + Compose）突破 Make ops 上限與本機檔案存取限制。產出可立即套用的雲地協作自動化系統。適合行銷企劃、營運、知識工作者、小型工作室主理人。</div>
+      <div class="tools">n8n CE · Docker Desktop · Cloudflare Tunnel</div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Make 進階使用者升級首選</div>
+    <div>Page 08 · Automation</div>
+  </div>
+</section>
+
+<!-- =============== Page 9 · 開課實績 =============== -->
+<section class="slide hero light">
+  <div class="chrome">
+    <div>Track Record · 開課實績</div>
+    <div>09 / 11</div>
+  </div>
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>Track Record · 截至 2026.05</div>
+    <h2 class="h-xl" data-anim>開課實績</h2>
+    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(720px,92vw)" data-anim>
+      已合作對象與時數規模 · 概略條列。
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0 4vw; max-width:min(1100px,96vw)">
+      <div class="course-line" data-anim>
+        <div class="tag">Higher Ed</div>
+        <div class="name">淡江大學</div>
+        <div class="desc">CCS GenAI Foundations 認證研習（自學版）</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">Higher Ed</div>
+        <div class="name">台北商業大學</div>
+        <div class="desc">數位行銷實務 兩學期 30h × 2 共 60h（SEO×GA4 + GTM×廣告科技）</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">Government</div>
+        <div class="name">經濟部相關職訓</div>
+        <div class="desc">iPAS AI 應用規劃師初級認證研習 · 30h</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">Public Sector</div>
+        <div class="name">水利署</div>
+        <div class="desc">從「問 AI」到「交辦 AI」· 6h 公部門交辦框架</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">Vocational</div>
+        <div class="name">職訓中心 · 職前班</div>
+        <div class="desc">生成式 AI 職訓實務應用班 140h<br>數位行銷人才培訓 70h</div>
+      </div>
+      <div class="course-line" data-anim>
+        <div class="tag">Corporate</div>
+        <div class="name">企業內訓</div>
+        <div class="desc">辦公室 AI 6h · Gemini AI 6h · GTM 實務專題（多場）</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>截至 2026.05 · 細節待後續補完</div>
+    <div>Page 09 · Track Record</div>
+  </div>
+</section>
+
+<!-- =============== Page 10 · 教學原則金句 =============== -->
+<section class="slide light" data-animate="quote">
   <div class="chrome">
     <div>The Principle · 教學設計原則</div>
-    <div>09 / 12</div>
+    <div>10 / 11</div>
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>The Principle</div>
@@ -493,108 +504,16 @@
     </div>
   </div>
   <div class="foot">
-    <div>Page 09 · 金句</div>
+    <div>Page 10 · 金句</div>
     <div>— · —</div>
   </div>
 </section>
 
-<!-- =============== Page 10 · 客製化機制 =============== -->
-<section class="slide dark">
-  <div class="chrome">
-    <div>How We Customize · 四種貼合機制</div>
-    <div>10 / 12</div>
-  </div>
-  <div class="frame" style="padding-top:5vh">
-    <div class="kicker" data-anim>四種貼合機制</div>
-    <h2 class="h-xl" data-anim>客製化路徑</h2>
-    <p class="lead" style="max-width:min(700px,92vw); margin-top:2vh" data-anim>
-      不是把標準課改色改 logo——<br>
-      是按你的客群、時數、情境重新節奏化。
-    </p>
-
-    <div class="grid-4" style="margin-top:5vh">
-      <div class="stat-card" data-anim>
-        <div class="stat-label">01 · Hours</div>
-        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">時數可裁切</div>
-        <div class="stat-note">3h 入門到 140h 職訓範圍內重組；已建置 9+ 種時數版本</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">02 · Audience</div>
-        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">客群可貼合</div>
-        <div class="stat-note">大學生 · 上班族 · 公部門 · 創業者四類講法已驗證</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">03 · Delivery</div>
-        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">教材完整交付</div>
-        <div class="stat-note">HTML 講義網站，手機平板可閱讀；附可帶走 deliverable</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">04 · Context</div>
-        <div class="stat-nb" style="font-size:clamp(22px,3.6vw,56px); font-family:var(--serif-zh); font-weight:700">情境可重組</div>
-        <div class="stat-note">行業情境替換；不限定產業 · 通用 PRAC 框架可換素材</div>
-      </div>
-    </div>
-  </div>
-  <div class="foot">
-    <div>每一場合作都是重新組合，不是套版</div>
-    <div>Page 10 · How We Customize</div>
-  </div>
-</section>
-
-<!-- =============== Page 11 · 已合作對象 =============== -->
-<section class="slide light">
-  <div class="chrome">
-    <div>Past Partners · 已合作對象</div>
-    <div>11 / 12</div>
-  </div>
-  <div class="frame" style="padding-top:5vh">
-    <div class="kicker" data-anim>已合作對象</div>
-    <h2 class="h-xl" data-anim>我們和誰一起做過課</h2>
-
-    <div class="grid-3" style="margin-top:5vh; row-gap:3vh">
-      <div class="partner-card" data-anim>
-        <div class="tag">Higher Ed</div>
-        <div class="name">淡江大學</div>
-        <div class="program">CCS GenAI Foundations 認證研習</div>
-      </div>
-      <div class="partner-card" data-anim>
-        <div class="tag">Higher Ed</div>
-        <div class="name">台北商業大學</div>
-        <div class="program">數位行銷實務 兩學期 60h（SEO×GA4 + GTM×廣告科技）</div>
-      </div>
-      <div class="partner-card" data-anim>
-        <div class="tag">Government</div>
-        <div class="name">經濟部相關職訓</div>
-        <div class="program">iPAS AI 應用規劃師初級研習 30h</div>
-      </div>
-      <div class="partner-card" data-anim>
-        <div class="tag">Public Sector</div>
-        <div class="name">水利署</div>
-        <div class="program">從問 AI 到交辦 AI · 公部門 6h 交辦框架課</div>
-      </div>
-      <div class="partner-card" data-anim>
-        <div class="tag">Vocational</div>
-        <div class="name">職訓中心</div>
-        <div class="program">生成式 AI 職訓實務應用班 140h</div>
-      </div>
-      <div class="partner-card" data-anim>
-        <div class="tag">Corporate</div>
-        <div class="name">企業內訓</div>
-        <div class="program">Office AI · Gemini AI · GTM 實務</div>
-      </div>
-    </div>
-  </div>
-  <div class="foot">
-    <div>合作對象涵蓋大學、政府、職訓中心、企業</div>
-    <div>Page 11 · Past Partners</div>
-  </div>
-</section>
-
-<!-- =============== Page 12 · CTA =============== -->
+<!-- =============== Page 11 · CTA =============== -->
 <section class="slide hero dark">
   <div class="chrome">
     <div>Next Step · Let's Talk</div>
-    <div>12 / 12</div>
+    <div>11 / 11</div>
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh">
     <div class="kicker" data-anim>Next Step</div>

@@ -8,9 +8,11 @@
 
 ![Cover · 課程資源庫 2026](docs/preview-cover.png)
 
-![Overview · 整體規模](docs/preview-overview.png)
+![Overview · 六個方向主題地圖](docs/preview-overview.png)
 
-![Theme I · 六大教學模組](docs/preview-modules.png)
+![GenAI · 通用方向](docs/preview-genai-general.png)
+
+![Track Record · 開課實績](docs/preview-track-record.png)
 
 ![CTA · 開始合作](docs/preview-cta.png)
 
@@ -29,29 +31,27 @@
 
 ---
 
-## 內容結構（共 12 頁）
+## 內容結構（共 11 頁）
 
 | # | 主題 | 內容 |
 |---|---|---|
 | 1 | 封面 | 課程資源庫 · 2026 |
-| 2 | 概覽數據 | 15 門課 / 5 主題 / 3h–140h / 5+ 機構 |
-| 3 | 五大主題幕封 | — |
-| 4 | 主題 I · 生成式 AI | 5 階時數光譜（pipeline） |
-| 5 | 主題 I · 教學模組 | 6 大可組合模組 |
-| 6 | 主題 II · AI 認證 | CCS / iPAS |
-| 7 | 主題 III · 數位行銷 | 弄一下 70h vs NTUB 60h |
-| 8 | 主題 IV & V | 自動化 + AI 圖像 |
-| 9 | 教學設計原則 | 「我們不賣標準品」 |
-| 10 | 客製化機制 | 時數 / 客群 / 教材 / 情境四向 |
-| 11 | 已合作對象 | 大學 / 政府 / 職訓 / 企業 |
-| 12 | CTA | 開始合作 |
+| 2 | 主題地圖 | 六個方向總覽 |
+| 3 | 生成式 AI · 通用 | 6 門課（從 Prompt 入門到完整職訓） |
+| 4 | 生成式 AI · 應用程式設計 | Gemini 零代碼 AI 實戰課 |
+| 5 | 生成式 AI · 商業圖像生成 | 商業用圖片生成（PM 思維） |
+| 6 | AI 認證輔導 | CCS / iPAS 兩條路徑 |
+| 7 | 數位行銷 × 網站數據 | 完整體系 + 學期路線 + 單點專題 |
+| 8 | 自動化工作流 | n8n 本機版實戰 |
+| 9 | 開課實績 | 已合作對象與時數規模（概略條列） |
+| 10 | 教學設計原則 | 「我們不賣標準品」 |
+| 11 | CTA | 開始合作 + 聯繫信箱 |
 
 ## 操作
 
 - `← →` 翻頁
 - 滾輪 / 觸控滑動
 - `ESC` 顯示總覽縮圖
-- 第 4 頁 pipeline：按 `→` 或空格逐階點亮
 - URL `#N` 可直接跳到指定頁（例如 `/#5`）
 - URL 加 `?static` 跳過動效（用於截圖、列印、嵌入 iframe）
 
@@ -59,7 +59,7 @@
 
 - 單一 HTML 檔案，無建置流程
 - WebGL shader 雙背景（深色：色散；淺色：流動）
-- Motion One 動效（CDN）
+- Motion One 動效（CDN）+ 保險絲（RAF 卡住時 2.8s 強制顯示）
 - Lucide icons / Google Fonts（Noto Serif TC + Playfair + Inter）
 - 主題色：🌊 靛蓝瓷
 - **流體字級**：所有字級用 `clamp(min, Nvw, max)`，桌機/平板/手機自動縮放
