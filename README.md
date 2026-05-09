@@ -12,6 +12,14 @@
 
 ![Theme I · 六大教學模組](docs/preview-modules.png)
 
+![CTA · 開始合作](docs/preview-cta.png)
+
+---
+
+## 聯繫
+
+**sky8697@gmail.com** — 有合作或客製需求請寄信來，告訴我們客群、時數與目標，我們從現有資源庫重組出最貼合的方案。
+
 ---
 
 ## 內容結構（共 12 頁）
