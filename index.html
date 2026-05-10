@@ -231,7 +231,7 @@
 
 
 
-/* mobile-reader-mode v6.3 catalog — landscape only (portrait 用原生 RWD) */
+/* mobile-reader-mode v6.4 catalog (portrait+landscape) — landscape only (portrait 用原生 RWD) */
 html.mobile-reader, html.mobile-reader body { overflow: auto !important; height: auto !important }
 html.mobile-reader #deck { width: 100% !important; transform: none !important; display: block !important; height: auto !important; flex-direction: column !important; position: static !important; inset: auto !important }
 html.mobile-reader .slide { width: 100% !important; height: auto !important; min-height: auto !important; flex: 0 0 auto !important; padding: 5vw 6vw 6vw 6vw !important; overflow: visible !important; border-bottom: 1px solid rgba(127,127,127,.12) }
@@ -254,6 +254,10 @@ html.mobile-reader canvas.bg { display: none !important }
 html.mobile-reader #portrait-hint, html.mobile-reader #nav, html.mobile-reader #hint { display: none !important }
 html.mobile-reader::before { content: "✱ 手機橫版閱讀模式 · 向下捲動瀏覽全部頁面"; display: block; position: sticky; top: 0; z-index: 100; padding: 8px 4vw; background: rgba(0,0,0,.85); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-align: center }
 
+
+html.mobile-reader [style*="grid-template-columns:repeat(2,1fr)"], html.mobile-reader [style*="grid-template-columns: repeat(2,1fr)"], html.mobile-reader [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important }
+html.mobile-reader .frame[style*="padding-top"] { padding-top: 0 !important }
+html.mobile-reader { padding-bottom: 12vh } /* 避開 iOS Safari URL bar */
 </style>
 </head>
 <body>
@@ -1183,7 +1187,7 @@ if(motion){
 /* mobile-reader v6.3 catalog: 只在 landscape phone 觸發（portrait 走原生 RWD）*/
 (function(){
   if (new URL(window.location.href).searchParams.get('deck') === '1') return;
-  var mq = window.matchMedia('(max-height: 600px) and (orientation: landscape)');
+  var mq = window.matchMedia('(max-width: 768px), (max-height: 600px) and (orientation: landscape)');
   function apply(){
     if (mq.matches) document.documentElement.classList.add('mobile-reader');
     else document.documentElement.classList.remove('mobile-reader');
