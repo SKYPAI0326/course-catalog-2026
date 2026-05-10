@@ -139,7 +139,7 @@
     .level-courses{font-size:clamp(13px,1vw,16px);line-height:1.4}
   }
   /* 手機橫向：level-table 收緊 + max-width:900 規則被覆蓋 */
-  @media (max-height:700px) and (orientation:landscape){
+  @media (max-height:900px) and (orientation:landscape){
     .level-row{grid-template-columns:1.1fr 2.2fr 2.8fr !important;padding:.4vh 0 !important;gap:0 1.6vw !important}
     .level-row.level-head{display:none}
     .level-name{flex-direction:column !important;gap:.1vh !important;margin-bottom:0 !important}
@@ -227,8 +227,8 @@
     .grid-3-3{grid-template-columns:1fr}
   }
 
-/* landscape-mobile-fix v3 */
-@media (max-height:700px) and (orientation:landscape) {
+/* landscape-mobile-fix v4 */
+@media (max-height:900px) and (orientation:landscape) {
   .slide { padding: 1vh 3.5vw 1.4vh 3.5vw !important }
   .frame { gap: .5vh !important }
   .chrome, .foot { font-size: max(8px, 1.4vh) !important; letter-spacing: .12em }
@@ -271,6 +271,10 @@
   pre, code { font-size: max(9px, 1.5vh) !important }
   /* portrait overlay 在 landscape 不顯示 */
   #portrait-hint { display: none !important }
+
+  /* 內容若仍超出，允許在 frame 內向下捲動（橫向滑頁不受影響） */
+  .slide { overflow-y: auto !important; -webkit-overflow-scrolling: touch }
+  .frame { overflow: visible !important; min-height: auto !important }
 }
 
 </style>
