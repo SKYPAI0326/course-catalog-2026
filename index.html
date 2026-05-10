@@ -123,10 +123,31 @@
   .level-courses>div{position:relative;padding-left:.9em}
   .level-courses>div::before{content:'·';position:absolute;left:.1em;opacity:.5;font-weight:700}
   @media (max-width:900px){
-    .level-row{grid-template-columns:1fr;gap:.6vh;padding:2.2vh 0}
+    .level-row{grid-template-columns:1fr;gap:.4vh;padding:1vh 0}
     .level-row.level-head{display:none}
-    .level-name{flex-direction:row;gap:1em;align-items:baseline;margin-bottom:.4vh}
-    .level-courses{margin-top:.4vh}
+    .level-name{flex-direction:row;gap:1em;align-items:baseline;margin-bottom:.2vh}
+    .level-courses{margin-top:.2vh}
+    .level-zh{font-size:4.4vw}
+    .level-audience{font-size:max(12px,2.8vw);line-height:1.4}
+    .level-courses{font-size:max(11px,2.6vw);line-height:1.35}
+  }
+  /* 桌機略收緊以避免 4 列被吃 */
+  @media (min-width:901px){
+    .level-row{padding:1.2vh 0}
+    .level-zh{font-size:clamp(18px,1.8vw,28px)}
+    .level-audience{font-size:clamp(13px,1vw,16px);line-height:1.5}
+    .level-courses{font-size:clamp(13px,1vw,16px);line-height:1.4}
+  }
+  /* 手機橫向：level-table 收緊 + max-width:900 規則被覆蓋 */
+  @media (max-height:500px) and (orientation:landscape){
+    .level-row{grid-template-columns:1.1fr 2.2fr 2.8fr !important;padding:.4vh 0 !important;gap:0 1.6vw !important}
+    .level-row.level-head{display:none}
+    .level-name{flex-direction:column !important;gap:.1vh !important;margin-bottom:0 !important}
+    .level-zh{font-size:max(13px,2.2vh) !important;line-height:1.1}
+    .level-en{font-size:max(8px,1.3vh);letter-spacing:.16em}
+    .level-audience{font-size:max(10px,1.6vh) !important;line-height:1.3}
+    .level-courses{font-size:max(10px,1.6vh) !important;line-height:1.25;gap:0 !important;margin-top:0 !important}
+    .level-courses>div{padding-left:.7em}
   }
 
   /* contact-form：CTA 頁聯繫表單 */
@@ -147,6 +168,14 @@
   .slide.dark .contact-form button:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
   .slide.light .contact-form button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   .contact-form button:disabled{opacity:.5;cursor:wait;background:transparent !important;color:inherit !important;border-color:currentColor !important}
+  /* 手機：表單改單欄、字級放大、padding 統一 */
+  @media (max-width:768px){
+    .contact-form{grid-template-columns:1fr;gap:1.4vh 0;max-width:100%}
+    .contact-form input,.contact-form select,.contact-form textarea{font-size:max(15px,3.6vw);padding:1.2vh 3vw}
+    .contact-form label{font-size:max(11px,2.6vw);letter-spacing:.18em}
+    .contact-form button{font-size:max(12px,3vw);padding:1.4vh 5vw}
+    .contact-form select{padding-right:6vw;background-position:calc(100% - 3vw) 50%,calc(100% - 2vw) 50%;background-size:1.5vw 1.5vw}
+  }
   .form-status{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:opacity .3s;line-height:1.5}
   .form-status.show{opacity:.85}
   .form-status.error{color:#ff8a80}
@@ -197,6 +226,43 @@
     .grid-6{grid-template-columns:1fr;gap:2.4vh 0}
     .grid-3-3{grid-template-columns:1fr}
   }
+
+/* landscape-mobile-fix v1 */
+@media (max-height:500px) and (orientation:landscape) {
+  .slide { padding: 1.4vh 4vw 2vh 4vw }
+  .frame { gap: .8vh }
+  .chrome, .foot { font-size: max(9px, 1.6vh); letter-spacing: .14em }
+  .kicker { font-size: max(9px, 1.5vh); margin-bottom: .8vh; letter-spacing: .22em }
+  .h-hero, .h1-zh { font-size: max(28px, 8vh) !important; line-height: 1.05 }
+  .h-xl { font-size: max(22px, 5.6vh) !important; line-height: 1.06 }
+  .h-sub, .h2-zh { font-size: max(18px, 3.8vh) !important; line-height: 1.18 }
+  .h-md, .h3-zh { font-size: max(15px, 2.8vh) !important; line-height: 1.22 }
+  .h-lg { font-size: max(20px, 4.2vh) !important; line-height: 1.1 }
+  .lead { font-size: max(13px, 2.2vh) !important; line-height: 1.4 }
+  .body-zh, .body-serif { font-size: max(11px, 1.9vh) !important; line-height: 1.45 }
+  .callout { padding: .8vh 2vw; font-size: max(11px, 1.9vh); line-height: 1.4 }
+  .rowline { padding: .5vh 0; gap: 1.4vw }
+  .rowline .k { font-size: max(11px, 1.9vh) }
+  .rowline .v { font-size: max(10px, 1.7vh); line-height: 1.35 }
+  .rowline .m { font-size: max(9px, 1.5vh) }
+  .stat-card { padding: 1vh 1.6vw }
+  .stat-nb, .stat-n { font-size: max(20px, 4.4vh) !important; line-height: 1 }
+  .stat-label, .stat-l { font-size: max(9px, 1.5vh); letter-spacing: .18em }
+  .stat-unit, .stat-u { font-size: .42em }
+  .stat-note { font-size: max(9px, 1.5vh); line-height: 1.4 }
+  .step { padding: .6vh 1vw }
+  .step-nb { font-size: max(11px, 2vh) }
+  .step-title { font-size: max(13px, 2.4vh); line-height: 1.2 }
+  .step-desc { font-size: max(10px, 1.7vh); line-height: 1.4 }
+  .meta-row { gap: .6em 1.2em; margin-top: .4vh; font-size: max(10px, 1.6vh) }
+  .grid-2, .grid-3, .grid-4, .grid-6, .grid-2-7-5, .grid-2-6-6, .grid-2-8-4, .grid-3-3 { gap: 1vh 2vw !important }
+  .pillar { padding: .8vh 1.4vw }
+  .level-row { padding: .8vh 0 }
+  .frame > * + * { margin-top: 0 }
+  /* 取消 portrait overlay 在 landscape：明確不顯示 */
+  #portrait-hint { display: none !important }
+}
+
 </style>
 </head>
 <body>
