@@ -258,6 +258,9 @@ html.mobile-reader::before { content: "✱ 手機橫版閱讀模式 · 向下捲
 html.mobile-reader [style*="grid-template-columns:repeat(2,1fr)"], html.mobile-reader [style*="grid-template-columns: repeat(2,1fr)"], html.mobile-reader [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important }
 html.mobile-reader .frame[style*="padding-top"] { padding-top: 0 !important }
 html.mobile-reader { padding-bottom: 12vh } /* 避開 iOS Safari URL bar */
+
+html.mobile-reader [data-anim], html.mobile-reader [data-animate], html.mobile-reader [data-anim] *, html.mobile-reader [data-animate] *, html.mobile-reader .slide [data-anim], html.mobile-reader .slide [data-animate] { opacity: 1 !important; transform: none !important; visibility: visible !important; filter: none !important; clip-path: none !important }
+html.mobile-reader [data-anim="line"], html.mobile-reader [data-anim="left"], html.mobile-reader [data-anim="right"], html.mobile-reader [data-anim="up"], html.mobile-reader [data-anim="down"] { opacity: 1 !important; transform: none !important }
 </style>
 </head>
 <body>
