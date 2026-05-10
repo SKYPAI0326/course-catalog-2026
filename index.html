@@ -259,7 +259,8 @@ html.mobile-reader .stat-note { font-size: clamp(13px, 3.4vw, 16px) !important; 
 html.mobile-reader q, html.mobile-reader blockquote, html.mobile-reader .q-big, html.mobile-reader .quote { font-size: clamp(20px, 5.6vw, 30px) !important; line-height: 1.4 !important }
 html.mobile-reader canvas.bg { display: none !important }
 html.mobile-reader #portrait-hint { display: none !important }
-html.mobile-reader .dots, html.mobile-reader #dots, html.mobile-reader .index-toggle { display: none !important }
+html.mobile-reader #nav, html.mobile-reader #hint, html.mobile-reader .dots, html.mobile-reader #dots, html.mobile-reader .index-toggle { display: none !important }
+html.mobile-reader::before { content: "✱ 手機閱讀模式 · 向下捲動瀏覽全部頁面"; display: block; position: sticky; top: 0; z-index: 100; padding: 8px 4vw; background: rgba(0,0,0,.85); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-align: center; opacity: .92 }
 html.mobile-reader .reader-toggle { position: fixed; bottom: 1vh; right: 2vw; z-index: 1000; font-family: var(--mono); font-size: 11px; padding: 6px 12px; background: rgba(127,127,127,.15); border: 1px solid currentColor; border-radius: 99px; opacity: .65; cursor: pointer; letter-spacing: .14em; text-transform: uppercase; color: inherit; text-decoration: none }
 html.mobile-reader .reader-toggle:hover { opacity: 1 }
 .reader-toggle { display: none }
@@ -1201,9 +1202,11 @@ if(motion){
       var deck = document.getElementById('deck');
       if (deck) deck.style.transition = 'none';
       /* 阻擋鍵盤 / wheel / touch swipe handler 干擾捲動 */
-      ['keydown','wheel','touchstart','touchmove','touchend'].forEach(function(ev){
-        window.addEventListener(ev, function(e){ e.stopImmediatePropagation(); }, {capture:true, passive:true});
-      });
+      window.addEventListener('keydown', function(e){
+        if (['ArrowLeft','ArrowRight','PageUp','PageDown',' '].indexOf(e.key) >= 0) {
+          e.stopImmediatePropagation();
+        }
+      }, {capture:true});
       /* 加切回 deck mode 的 toggle */
       if (!document.querySelector('.reader-toggle')) {
         var a = document.createElement('a');
