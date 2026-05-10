@@ -227,7 +227,7 @@
     .grid-3-3{grid-template-columns:1fr}
   }
 
-/* landscape-mobile-fix v4 */
+/* landscape-mobile-fix v5 */
 @media (max-height:900px) and (orientation:landscape) {
   .slide { padding: 1vh 3.5vw 1.4vh 3.5vw !important }
   .frame { gap: .5vh !important }
@@ -275,6 +275,12 @@
   /* 內容若仍超出，允許在 frame 內向下捲動（橫向滑頁不受影響） */
   .slide { overflow-y: auto !important; -webkit-overflow-scrolling: touch }
   .frame { overflow: visible !important; min-height: auto !important }
+
+  /* 修頂部空白：landscape 時 frame 內容從上而下排列（覆蓋 inline align-content:center） */
+  .frame { align-content: flex-start !important; align-items: flex-start !important; justify-content: flex-start !important; min-height: 0 !important; padding-top: 0 !important }
+  .frame > * { align-self: flex-start !important; justify-self: flex-start !important }
+  /* hero 頁的 quote/center 容器：移除 justify-center 留出的上方空白 */
+  .frame.center, .frame.hero-center { justify-content: flex-start !important }
 }
 
 </style>
