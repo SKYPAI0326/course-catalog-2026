@@ -139,7 +139,7 @@
     .level-courses{font-size:clamp(13px,1vw,16px);line-height:1.4}
   }
   /* 手機橫向：level-table 收緊 + max-width:900 規則被覆蓋 */
-  @media (max-height:500px) and (orientation:landscape){
+  @media (max-height:700px) and (orientation:landscape){
     .level-row{grid-template-columns:1.1fr 2.2fr 2.8fr !important;padding:.4vh 0 !important;gap:0 1.6vw !important}
     .level-row.level-head{display:none}
     .level-name{flex-direction:column !important;gap:.1vh !important;margin-bottom:0 !important}
@@ -227,8 +227,8 @@
     .grid-3-3{grid-template-columns:1fr}
   }
 
-/* landscape-mobile-fix v2 */
-@media (max-height:500px) and (orientation:landscape) {
+/* landscape-mobile-fix v3 */
+@media (max-height:700px) and (orientation:landscape) {
   .slide { padding: 1vh 3.5vw 1.4vh 3.5vw !important }
   .frame { gap: .5vh !important }
   .chrome, .foot { font-size: max(8px, 1.4vh) !important; letter-spacing: .12em }
