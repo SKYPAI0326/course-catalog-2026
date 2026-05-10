@@ -1193,7 +1193,7 @@ if(motion){
   var url = new URL(window.location.href);
   var force = url.searchParams.get('deck'); /* '1' = 強制桌機 deck mode */
   if (force === '1') return;
-  var mq = window.matchMedia('(max-width: 900px), (max-height: 700px) and (orientation: landscape), (pointer: coarse) and (max-width: 1200px)');
+  var mq = window.matchMedia('(max-width: 768px), (max-height: 600px) and (orientation: landscape)');
   function apply(){
     if (mq.matches) {
       document.documentElement.classList.add('mobile-reader');
