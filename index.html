@@ -234,7 +234,10 @@
 /* mobile-reader-mode v6.4 catalog (portrait+landscape) — landscape only (portrait 用原生 RWD) */
 html.mobile-reader, html.mobile-reader body { overflow: auto !important; height: auto !important }
 html.mobile-reader #deck { width: 100% !important; transform: none !important; display: block !important; height: auto !important; flex-direction: column !important; position: static !important; inset: auto !important }
-html.mobile-reader .slide { width: 100% !important; height: auto !important; min-height: auto !important; flex: 0 0 auto !important; padding: 5vw 6vw 6vw 6vw !important; overflow: visible !important; border-bottom: 1px solid rgba(127,127,127,.12) }
+html.mobile-reader .slide { width: 100% !important; height: auto !important; min-height: auto !important; flex: 0 0 auto !important; padding: 6vw 6vw 8vw 6vw !important; overflow: visible !important; margin-bottom: 4vw; position: relative }
+html.mobile-reader .slide::after { content: ""; display: block; position: absolute; bottom: -2vw; left: 0; right: 0; height: 4vw; background: linear-gradient(180deg, transparent 0%, rgba(127,127,127,.08) 50%, transparent 100%); pointer-events: none }
+html.mobile-reader .slide.dark + .slide.light, html.mobile-reader .slide.light + .slide.dark { margin-top: 0 !important }
+html.mobile-reader .slide.dark + .slide.dark, html.mobile-reader .slide.light + .slide.light { border-top: 3px solid rgba(127,127,127,.32); padding-top: 8vw !important }
 html.mobile-reader .slide::before, html.mobile-reader .slide::after { display: none !important }
 html.mobile-reader .frame { display: flex !important; flex-direction: column !important; gap: 1.6vh !important; align-content: flex-start !important; align-items: flex-start !important; justify-content: flex-start !important; min-height: auto !important; padding-top: 0 !important; overflow: visible !important }
 html.mobile-reader .h-hero { font-size: clamp(34px, 11vw, 64px) !important; line-height: 1.08 !important }
