@@ -228,42 +228,31 @@
   }
 
 
-/* mobile-reader-mode v6 — Codex consult 0e6bc391 採納 */
+
+
+
+/* mobile-reader-mode v6.3 catalog — landscape only (portrait 用原生 RWD) */
 html.mobile-reader, html.mobile-reader body { overflow: auto !important; height: auto !important }
 html.mobile-reader #deck { width: 100% !important; transform: none !important; display: block !important; height: auto !important; flex-direction: column !important }
 html.mobile-reader .slide { width: 100% !important; height: auto !important; min-height: auto !important; flex: 0 0 auto !important; padding: 5vw 6vw 6vw 6vw !important; overflow: visible !important; border-bottom: 1px solid rgba(127,127,127,.12) }
 html.mobile-reader .slide::before, html.mobile-reader .slide::after { display: none !important }
 html.mobile-reader .frame { display: flex !important; flex-direction: column !important; gap: 1.6vh !important; align-content: flex-start !important; align-items: flex-start !important; justify-content: flex-start !important; min-height: auto !important; padding-top: 0 !important; overflow: visible !important }
-html.mobile-reader .frame > * { align-self: stretch !important; justify-self: flex-start !important }
-html.mobile-reader .chrome { font-size: 11px !important; letter-spacing: .14em !important; opacity: .55; margin-bottom: 2vw }
-html.mobile-reader .foot { font-size: 11px !important; letter-spacing: .14em !important; opacity: .45; margin-top: 3vw }
-html.mobile-reader .kicker { font-size: 11px !important; letter-spacing: .22em !important; margin-bottom: 1vh !important }
-html.mobile-reader .h-hero, html.mobile-reader .h1-zh, html.mobile-reader .display-zh, html.mobile-reader .display { font-size: clamp(34px, 11vw, 64px) !important; line-height: 1.08 !important; margin-bottom: .4vh }
+html.mobile-reader .h-hero { font-size: clamp(34px, 11vw, 64px) !important; line-height: 1.08 !important }
 html.mobile-reader .h-xl { font-size: clamp(24px, 7.5vw, 44px) !important; line-height: 1.12 !important }
-html.mobile-reader .h-sub, html.mobile-reader .h2-zh { font-size: clamp(18px, 5.2vw, 30px) !important; line-height: 1.25 !important }
-html.mobile-reader .h-md, html.mobile-reader .h3-zh { font-size: clamp(15px, 4vw, 22px) !important; line-height: 1.3 !important }
-html.mobile-reader .h-lg { font-size: clamp(20px, 6vw, 32px) !important; line-height: 1.18 !important }
+html.mobile-reader .h-sub { font-size: clamp(18px, 5.2vw, 30px) !important; line-height: 1.25 !important }
+html.mobile-reader .h-md { font-size: clamp(15px, 4vw, 22px) !important; line-height: 1.3 !important }
 html.mobile-reader .lead { font-size: clamp(15px, 4.2vw, 22px) !important; line-height: 1.55 !important }
-html.mobile-reader .body-zh, html.mobile-reader .body-serif, html.mobile-reader p, html.mobile-reader li { font-size: clamp(14px, 3.8vw, 18px) !important; line-height: 1.7 !important }
-html.mobile-reader .meta-row { font-size: 11px !important; gap: .4em 1em !important; flex-wrap: wrap !important; margin-top: .8vh !important }
-html.mobile-reader .callout { padding: 3vw 4vw !important; font-size: clamp(14px, 3.8vw, 18px) !important; line-height: 1.6 !important }
-html.mobile-reader .callout .body-zh, html.mobile-reader .callout .body-serif { font-size: clamp(14px, 3.8vw, 18px) !important }
-html.mobile-reader .grid-2, html.mobile-reader .grid-3, html.mobile-reader .grid-4, html.mobile-reader .grid-6, html.mobile-reader .grid-2-7-5, html.mobile-reader .grid-2-6-6, html.mobile-reader .grid-2-8-4, html.mobile-reader .grid-3-3 { grid-template-columns: 1fr !important; gap: 2vh 0 !important }
-html.mobile-reader .pipeline { grid-template-columns: 1fr !important; gap: 2vh 0 !important }
-html.mobile-reader .rowline { grid-template-columns: 1fr !important; padding: 1.4vh 0 !important; gap: .4vh !important }
-html.mobile-reader .rowline .k, html.mobile-reader .rowline .v, html.mobile-reader .rowline .m { font-size: clamp(13px, 3.6vw, 16px) !important }
-html.mobile-reader .stat-card { padding: 2vw 0 !important }
-html.mobile-reader .stat-nb, html.mobile-reader .stat-n, html.mobile-reader .big-num, html.mobile-reader .mid-num { font-size: clamp(34px, 14vw, 72px) !important; line-height: 1 !important }
-html.mobile-reader .stat-label, html.mobile-reader .stat-l { font-size: 11px !important }
-html.mobile-reader .stat-note { font-size: clamp(13px, 3.4vw, 16px) !important; line-height: 1.5 !important }
-html.mobile-reader q, html.mobile-reader blockquote, html.mobile-reader .q-big, html.mobile-reader .quote { font-size: clamp(20px, 5.6vw, 30px) !important; line-height: 1.4 !important }
+html.mobile-reader .body-zh, html.mobile-reader p, html.mobile-reader li { font-size: clamp(14px, 3.8vw, 18px) !important; line-height: 1.7 !important }
+html.mobile-reader .meta-row { font-size: 11px !important; gap: .4em 1em !important; flex-wrap: wrap !important }
+html.mobile-reader .level-row { grid-template-columns: 1fr !important; padding: 1.4vh 0 !important; gap: .4vh !important }
+html.mobile-reader .level-zh { font-size: clamp(18px, 5vw, 26px) !important }
+html.mobile-reader .level-audience, html.mobile-reader .level-courses { font-size: clamp(13px, 3.6vw, 16px) !important; line-height: 1.5 }
+html.mobile-reader .pillar { padding: 2vw 4vw !important }
+html.mobile-reader .partner-card, html.mobile-reader .course-line { padding: 2vw 0 !important }
+html.mobile-reader .partner-card .name, html.mobile-reader .course-line .name { font-size: clamp(16px, 4.5vw, 22px) !important }
 html.mobile-reader canvas.bg { display: none !important }
-html.mobile-reader #portrait-hint { display: none !important }
-html.mobile-reader #nav, html.mobile-reader #hint, html.mobile-reader .dots, html.mobile-reader #dots, html.mobile-reader .index-toggle { display: none !important }
-html.mobile-reader::before { content: "✱ 手機閱讀模式 · 向下捲動瀏覽全部頁面"; display: block; position: sticky; top: 0; z-index: 100; padding: 8px 4vw; background: rgba(0,0,0,.85); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-align: center; opacity: .92 }
-html.mobile-reader .reader-toggle { position: fixed; bottom: 1vh; right: 2vw; z-index: 1000; font-family: var(--mono); font-size: 11px; padding: 6px 12px; background: rgba(127,127,127,.15); border: 1px solid currentColor; border-radius: 99px; opacity: .65; cursor: pointer; letter-spacing: .14em; text-transform: uppercase; color: inherit; text-decoration: none }
-html.mobile-reader .reader-toggle:hover { opacity: 1 }
-.reader-toggle { display: none }
+html.mobile-reader #portrait-hint, html.mobile-reader #nav, html.mobile-reader #hint { display: none !important }
+html.mobile-reader::before { content: "✱ 手機橫版閱讀模式 · 向下捲動瀏覽全部頁面"; display: block; position: sticky; top: 0; z-index: 100; padding: 8px 4vw; background: rgba(0,0,0,.85); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-align: center }
 
 </style>
 </head>
@@ -1187,37 +1176,17 @@ if(motion){
 }
 </script>
 
+
+
+
 <script>
-/* mobile-reader-mode v6 — Codex consult 0e6bc391 採納
-   觸發：max-width 900 / max-height 700 / pointer coarse；URL ?deck=1 強制 deck mode */
+/* mobile-reader v6.3 catalog: 只在 landscape phone 觸發（portrait 走原生 RWD）*/
 (function(){
-  var url = new URL(window.location.href);
-  var force = url.searchParams.get('deck'); /* '1' = 強制桌機 deck mode */
-  if (force === '1') return;
-  var mq = window.matchMedia('(max-width: 768px), (max-height: 600px) and (orientation: landscape)');
+  if (new URL(window.location.href).searchParams.get('deck') === '1') return;
+  var mq = window.matchMedia('(max-height: 600px) and (orientation: landscape)');
   function apply(){
-    if (mq.matches) {
-      document.documentElement.classList.add('mobile-reader');
-      /* 停掉 deck 翻頁綁定 */
-      var deck = document.getElementById('deck');
-      if (deck) deck.style.transition = 'none';
-      /* 阻擋鍵盤 / wheel / touch swipe handler 干擾捲動 */
-      window.addEventListener('keydown', function(e){
-        if (['ArrowLeft','ArrowRight','PageUp','PageDown',' '].indexOf(e.key) >= 0) {
-          e.stopImmediatePropagation();
-        }
-      }, {capture:true});
-      /* 加切回 deck mode 的 toggle */
-      if (!document.querySelector('.reader-toggle')) {
-        var a = document.createElement('a');
-        a.href = '?deck=1';
-        a.className = 'reader-toggle';
-        a.textContent = '桌機翻頁模式';
-        document.body.appendChild(a);
-      }
-    } else {
-      document.documentElement.classList.remove('mobile-reader');
-    }
+    if (mq.matches) document.documentElement.classList.add('mobile-reader');
+    else document.documentElement.classList.remove('mobile-reader');
   }
   apply();
   mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
