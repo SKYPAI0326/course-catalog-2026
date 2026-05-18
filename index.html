@@ -188,6 +188,35 @@
   .feature-card .desc{font-family:var(--sans-zh);font-weight:400;font-size:clamp(14px,1.15vw,20px);line-height:1.7;opacity:.85}
   .feature-card .tools{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:.6vh}
 
+  /* ---- roadmap：學習路徑頁（Page 3）4 欄橫向，欄間箭頭 ---- */
+  .roadmap{display:flex;align-items:stretch;gap:0;width:100%;max-width:min(1320px,98vw);margin-top:1.4vh}
+  .roadmap-stage{flex:1 1 0;display:flex;flex-direction:column;min-width:0;padding:1.6vh 1.1vw 0;border-top:2px solid currentColor;border-color:rgba(127,127,127,.45)}
+  .roadmap-stage .r-lv{font-family:var(--mono);font-size:max(9px,.66vw);letter-spacing:.2em;text-transform:uppercase;opacity:.5}
+  .roadmap-stage .r-zh{font-family:var(--serif-zh);font-weight:700;font-size:clamp(17px,1.85vw,29px);line-height:1.16;margin-top:.2vh}
+  .r-seg{margin-top:1.3vh;display:flex;flex-direction:column;gap:.35vh}
+  .r-seg .r-label{font-family:var(--mono);font-size:max(8.5px,.62vw);letter-spacing:.16em;text-transform:uppercase;opacity:.46}
+  .r-seg .r-text{font-family:var(--sans-zh);font-weight:400;font-size:clamp(11px,.85vw,14.5px);line-height:1.5;opacity:.82}
+  .r-seg .r-text.r-outcome{font-family:var(--serif-zh);font-weight:600;opacity:.96}
+  .r-seg.r-next{margin-top:1.5vh}
+  .r-seg.r-next .r-text{font-family:var(--serif-zh);font-weight:600;font-size:clamp(11px,.86vw,15px);line-height:1.45;opacity:.92;padding:1vh .9vw;border-left:2px solid currentColor;border-color:rgba(127,127,127,.55)}
+  .roadmap-arrow{flex:0 0 auto;display:flex;align-items:flex-start;justify-content:center;width:clamp(20px,2.6vw,44px);padding-top:4vh;font-family:var(--serif-en);font-size:clamp(16px,1.9vw,28px);opacity:.4}
+
+  /* ---- subpath：GenAI 通用子路徑（Page 4）2 段式：入門 4 卡橫排 → 匯流 → 進階 3 卡橫排 ---- */
+  .subpath{display:flex;flex-direction:column;width:100%;max-width:min(1300px,98vw);margin-top:1.4vh;gap:1.2vh}
+  .sp-band{display:flex;flex-direction:column}
+  .sp-band-label{font-family:var(--mono);font-size:max(9px,.66vw);letter-spacing:.18em;text-transform:uppercase;opacity:.55;padding-bottom:.7vh;margin-bottom:1.1vh;border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.42)}
+  .sp-row{display:flex;align-items:stretch;gap:1vw}
+  .sp-card{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:.3vh;padding:1.5vh 1.1vw;border:1px solid currentColor;border-color:rgba(127,127,127,.32);border-radius:5px}
+  .slide.light .sp-card{background:rgba(var(--ink-rgb),.035)}
+  .slide.dark .sp-card{background:rgba(var(--paper-rgb),.045)}
+  .sp-card .sp-tag{font-family:var(--mono);font-size:max(8.5px,.6vw);letter-spacing:.13em;text-transform:uppercase;opacity:.55;line-height:1.4}
+  .sp-card .sp-name{font-family:var(--serif-zh);font-weight:700;font-size:clamp(15px,1.5vw,25px);line-height:1.2;margin-top:.25vh}
+  .sp-card .sp-desc{font-family:var(--sans-zh);font-weight:400;font-size:clamp(11px,.84vw,14px);line-height:1.55;opacity:.8;margin-top:.35vh}
+  .sp-card .sp-link{font-family:var(--serif-zh);font-weight:600;font-size:clamp(10.5px,.8vw,13.5px);line-height:1.42;opacity:.9;margin-top:auto;padding-top:.9vh}
+  .sp-arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:clamp(22px,2.6vw,46px);font-family:var(--serif-en);font-size:clamp(18px,2vw,30px);opacity:.42}
+  .sp-merge{display:flex;align-items:center;gap:.7vw;font-family:var(--serif-zh);font-weight:600;font-size:clamp(11px,.86vw,15px);line-height:1.4;opacity:.85}
+  .sp-merge::before{content:"↓";font-family:var(--serif-en);font-weight:700;font-size:1.5em;line-height:.7;opacity:.55}
+
   /* ---- nav ---- */
   #nav{position:fixed;left:50%;bottom:2.6vh;transform:translateX(-50%);z-index:30;display:flex;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
   #nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:0;padding:0}
@@ -220,6 +249,14 @@
     .grid-4 .stat-card .stat-nb,.grid-3 .stat-card .stat-nb{font-size:clamp(30px,6.4vw,48px)}
     .stat-card{padding-top:1.2vh}
     .stat-card .stat-note{margin-top:.4vh}
+    /* roadmap / subpath：手機改縱向堆疊，欄間箭頭轉向下 */
+    .roadmap,.subpath{flex-direction:column;max-width:100%}
+    .roadmap-stage{padding:1.4vh 0 0}
+    .roadmap-arrow{width:100%;padding:.6vh 0;transform:rotate(90deg)}
+    .r-seg.r-next{margin-top:1.2vh}
+    .sp-row{flex-direction:column;gap:1.2vh}
+    .sp-row .sp-arrow{width:100%;padding:.3vh 0;transform:rotate(90deg)}
+    .sp-card .sp-link{margin-top:1vh}
   }
   @media (max-width:600px){
     .pipeline{grid-template-columns:1fr}
@@ -253,6 +290,14 @@ html.mobile-reader .level-audience, html.mobile-reader .level-courses { font-siz
 html.mobile-reader .pillar { padding: 2vw 4vw !important }
 html.mobile-reader .partner-card, html.mobile-reader .course-line { padding: 2vw 0 !important }
 html.mobile-reader .partner-card .name, html.mobile-reader .course-line .name { font-size: clamp(16px, 4.5vw, 22px) !important }
+/* roadmap / subpath 手機長頁模式：縱向堆疊、字級放大、箭頭轉向下 */
+html.mobile-reader .roadmap, html.mobile-reader .sp-row { flex-direction: column !important; max-width: 100% !important }
+html.mobile-reader .roadmap-stage { padding: 2vw 0 0 !important }
+html.mobile-reader .roadmap .roadmap-arrow, html.mobile-reader .sp-row .sp-arrow { width: 100% !important; padding: 1vh 0 !important; transform: rotate(90deg) !important }
+html.mobile-reader .r-seg.r-next, html.mobile-reader .sp-card .sp-link { margin-top: 1.4vh !important }
+html.mobile-reader .roadmap-stage .r-zh { font-size: clamp(18px, 5vw, 26px) !important }
+html.mobile-reader .r-seg .r-text, html.mobile-reader .r-seg.r-next .r-text, html.mobile-reader .sp-card .sp-desc, html.mobile-reader .sp-card .sp-link, html.mobile-reader .sp-merge { font-size: clamp(13px, 3.6vw, 16px) !important; line-height: 1.55 !important }
+html.mobile-reader .sp-card .sp-name { font-size: clamp(16px, 4.5vw, 22px) !important }
 html.mobile-reader canvas.bg { display: none !important }
 html.mobile-reader #portrait-hint, html.mobile-reader #nav, html.mobile-reader #hint { display: none !important }
 html.mobile-reader::before { content: "✱ 手機橫版閱讀模式 · 向下捲動瀏覽全部頁面"; display: block; position: sticky; top: 0; z-index: 100; padding: 8px 4vw; background: rgba(0,0,0,.85); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-align: center }
@@ -285,8 +330,8 @@ html.mobile-reader [data-anim="line"], html.mobile-reader [data-anim="left"], ht
     <h1 class="h-hero" data-anim>課程資源庫</h1>
     <h2 class="h-sub" data-anim>Course Catalog · 2026</h2>
     <p class="lead" style="max-width:min(720px,92vw)" data-anim>
-      從 3 小時入門到 140 小時職訓，五大主題、十五門課，<br>
-      可按時數、客群、情境自由重組。
+      從 3 小時入門到 140 小時職訓，橫跨六大方向，<br>
+      課程可按時數、客群、情境自由重組。
     </p>
     <div class="meta-row" data-anim>
       <span>弄一下工作室</span><span>·</span><span>教學設計與課程開發</span><span>·</span><a href="mailto:sky8697@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.1em;opacity:.85">sky8697@gmail.com</a>
@@ -327,82 +372,104 @@ html.mobile-reader [data-anim="line"], html.mobile-reader [data-anim="left"], ht
   </div>
 </section>
 
-<!-- =============== Page 3 · 程度定位（Level Map）=============== -->
+<!-- =============== Page 3 · 學習路徑（Learning Path）=============== -->
 <section class="slide dark">
   <div class="chrome">
-    <div>Level Map · 程度定位</div>
+    <div>Learning Path · 學習路徑</div>
     <div>03 / 12</div>
   </div>
   <div class="frame" style="padding-top:2vh">
-    <div class="kicker" data-anim>How to Choose · 程度定位</div>
-    <h2 class="h-xl" style="font-size:clamp(32px,5.4vw,86px)" data-anim>四個程度，一眼選課</h2>
-    <p class="lead" style="margin-top:1.4vh; margin-bottom:2.4vh; max-width:min(800px,92vw)" data-anim>
-      不知道從哪一堂開始？依學員對 AI 的熟悉度分四階；每階可從不同方向中選一門切入。
+    <div class="kicker" data-anim>Learning Path · 一條路，四個階段</div>
+    <h2 class="h-xl" style="font-size:clamp(30px,5vw,80px)" data-anim>從入門到協思 · 一條路徑</h2>
+    <p class="lead" style="margin-top:1.2vh; margin-bottom:1.4vh; max-width:min(880px,92vw)" data-anim>
+      四個程度不是並列選項，而是一條路。每階都承接上一階的成果——先對照「門檻」找到你現在的位置，再順著箭頭看下一步往哪走。
     </p>
 
-    <div class="level-table" data-anim>
-      <div class="level-row level-head">
-        <div>程度</div>
-        <div>建議對象</div>
-        <div>學會之後，你能做到</div>
-      </div>
-      <div class="level-row" data-anim>
-        <div class="level-name">
-          <div class="level-zh">入門班</div>
-          <div class="level-en">L1 · Newcomer</div>
+    <div class="roadmap">
+      <div class="roadmap-stage" data-anim>
+        <div class="r-lv">L1 · Newcomer</div>
+        <div class="r-zh">入門班</div>
+        <div class="r-seg">
+          <div class="r-label">門檻 · 這階適合你嗎</div>
+          <div class="r-text">完全沒有 AI 經驗、數位工具也不熟。零基礎，用手機免費版就能開始。</div>
         </div>
-        <div class="level-audience">完全沒有 AI 經驗，數位工具也不熟悉者。從觀念開始建立。</div>
-        <div class="level-courses">
-          <div>用對話方式問對 AI 問題、得到能用的回答</div>
-          <div>寫好 Email、貼文、簡介、摘要等日常文書</div>
-          <div>建立 30+ 則可重複套用的個人 Prompt 範本</div>
-          <div>認識資安界線：哪些資料不可以丟給 AI</div>
+        <div class="r-seg">
+          <div class="r-label">學什麼</div>
+          <div class="r-text">用對話問對問題、寫好日常文書、建立 30+ 則 Prompt 範本、認識資安界線。</div>
         </div>
-      </div>
-      <div class="level-row" data-anim>
-        <div class="level-name">
-          <div class="level-zh">基礎班</div>
-          <div class="level-en">L2 · Foundation</div>
+        <div class="r-seg">
+          <div class="r-label">帶走成果</div>
+          <div class="r-text r-outcome">一套可重複套用的個人 Prompt 範本庫，加上安全使用習慣。</div>
         </div>
-        <div class="level-audience">知道 AI、用過幾次，但不知道怎麼問才對的。學會結構化提示詞。</div>
-        <div class="level-courses">
-          <div>結構化提示詞：角色 / 任務 / 限制 / 輸出格式</div>
-          <div>把工作拆解成 AI 可交辦的步驟</div>
-          <div>Email、週報、提案、簡報大綱的自動化處理</div>
-          <div>建立通用 AI 知識體系（適用認證或自學進修）</div>
+        <div class="r-seg r-next">
+          <div class="r-text">→ 帶著「能問、能寫」的基本功，進入 L2 把提示詞結構化。</div>
         </div>
       </div>
-      <div class="level-row" data-anim>
-        <div class="level-name">
-          <div class="level-zh">整合班</div>
-          <div class="level-en">L3 · Integration</div>
+      <div class="roadmap-arrow" data-anim>→</div>
+      <div class="roadmap-stage" data-anim>
+        <div class="r-lv">L2 · Foundation</div>
+        <div class="r-zh">基礎班</div>
+        <div class="r-seg">
+          <div class="r-label">門檻 · 這階適合你嗎</div>
+          <div class="r-text">知道 AI、用過幾次，但不知道怎麼問才問得準。</div>
         </div>
-        <div class="level-audience">已用過 AI，想整合進工作流：文書、會議、簡報、設計、行銷。</div>
-        <div class="level-courses">
-          <div>多模態輸入處理（圖片 / PDF / 語音）</div>
-          <div>用 AI 建立領域知識管理系統與專家腦</div>
-          <div>商業視覺成系列產出（封面、海報、簡報、產品圖）</div>
-          <div>數位行銷數據閉環：搜尋意圖 → 追蹤 → 廣告 → 分析</div>
+        <div class="r-seg">
+          <div class="r-label">學什麼</div>
+          <div class="r-text">結構化提示詞（角色／任務／限制／格式）、把工作拆成可交辦步驟、文書自動化。</div>
+        </div>
+        <div class="r-seg">
+          <div class="r-label">帶走成果</div>
+          <div class="r-text r-outcome">一套穩定可複製的提示詞框架，與通用 AI 知識體系（可直接接認證）。</div>
+        </div>
+        <div class="r-seg r-next">
+          <div class="r-text">→ 帶著「框架化的提示詞」，進入 L3 整合進真實工作流。</div>
         </div>
       </div>
-      <div class="level-row" data-anim>
-        <div class="level-name">
-          <div class="level-zh">協思班</div>
-          <div class="level-en">L4 · Co-thinking</div>
+      <div class="roadmap-arrow" data-anim>→</div>
+      <div class="roadmap-stage" data-anim>
+        <div class="r-lv">L3 · Integration</div>
+        <div class="r-zh">整合班</div>
+        <div class="r-seg">
+          <div class="r-label">門檻 · 這階適合你嗎</div>
+          <div class="r-text">已會基本提示詞，想把 AI 整合進文書、會議、簡報、設計、行銷。</div>
         </div>
-        <div class="level-audience">已熟練 AI，想讓 AI 成為長期協作夥伴：自建工具、自動化、API 整合。</div>
-        <div class="level-courses">
-          <div>自建零代碼工具（計算、查檢、互動網頁）</div>
-          <div>雲端自動化與本機自動化串接整合</div>
-          <div>API 串接、部署、版本管理等進階開發實務</div>
-          <div>讓 AI 成為策略討論與專案推進的長期夥伴</div>
+        <div class="r-seg">
+          <div class="r-label">學什麼</div>
+          <div class="r-text">多模態輸入處理、AI 知識管理系統、商業視覺成系列、數位行銷數據閉環。</div>
+        </div>
+        <div class="r-seg">
+          <div class="r-label">帶走成果</div>
+          <div class="r-text r-outcome">一條跑得動的個人或團隊 AI 工作流。</div>
+        </div>
+        <div class="r-seg r-next">
+          <div class="r-text">→ 帶著「會用的工作流」，進入 L4 升級為自建工具與自動化。</div>
+        </div>
+      </div>
+      <div class="roadmap-arrow" data-anim>→</div>
+      <div class="roadmap-stage" data-anim>
+        <div class="r-lv">L4 · Co-thinking</div>
+        <div class="r-zh">協思班</div>
+        <div class="r-seg">
+          <div class="r-label">門檻 · 這階適合你嗎</div>
+          <div class="r-text">已熟練 AI，想讓它成為長期協作的工作夥伴。</div>
+        </div>
+        <div class="r-seg">
+          <div class="r-label">學什麼</div>
+          <div class="r-text">自建零代碼工具、雲端與本機自動化串接、API 整合與部署。</div>
+        </div>
+        <div class="r-seg">
+          <div class="r-label">帶走成果</div>
+          <div class="r-text r-outcome">一套能長期演進的 AI 協作系統。</div>
+        </div>
+        <div class="r-seg r-next">
+          <div class="r-text">→ 進入認證、商業圖像、數位行銷、自動化等專門方向持續深化。</div>
         </div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>四個程度可以橫跨不同方向組合</div>
-    <div>Page 03 · Level Map</div>
+    <div>每階承接上一階的成果 · 跨方向通用</div>
+    <div>Page 03 · Learning Path</div>
   </div>
 </section>
 
@@ -412,50 +479,72 @@ html.mobile-reader [data-anim="line"], html.mobile-reader [data-anim="left"], ht
     <div>GenAI · General · 通用方向</div>
     <div>04 / 12</div>
   </div>
-  <div class="frame" style="padding-top:4vh">
-    <div class="kicker" data-anim>Direction 01 · GenAI General</div>
-    <h2 class="h-xl" data-anim>生成式 AI · 通用</h2>
-    <p class="lead" style="margin-top:2vh; margin-bottom:4vh; max-width:min(800px,92vw)" data-anim>
-      職場 AI 工具與提示詞工程的完整體系。<br>
-      文書、知識管理、工作流整合——所有人都用得上的核心。
+  <div class="frame" style="padding-top:2vh">
+    <div class="kicker" data-anim>Direction 01 · GenAI General · 子路徑</div>
+    <h2 class="h-xl" style="font-size:clamp(28px,4.3vw,66px)" data-anim>生成式 AI · 通用</h2>
+    <p class="lead" style="margin-top:1vh; margin-bottom:1.2vh; max-width:min(900px,92vw); font-size:clamp(15px,1.5vw,23px)" data-anim>
+      七門課不是並列選項，而是一條路：先依開課對象，從入門層四個入口選一個切入；四條入口都匯流進系統層，再沿系統 → 進階 → 完整往上走。
     </p>
 
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0 4vw; max-width:min(1100px,96vw)">
-      <div class="course-line" data-anim>
-        <div class="tag">01 · 入門</div>
-        <div class="name">創業 AI 實戰</div>
-        <div class="desc">創業老闆 / 一人團隊。手機免費版起步，30+ 則 Prompt 範本帶回家。</div>
+    <div class="subpath">
+      <div class="sp-band" data-anim>
+        <div class="sp-band-label">入門層 · L1 · 依開課對象選一個入口（四選一）</div>
+        <div class="sp-row">
+          <div class="sp-card">
+            <div class="sp-tag">入口 A · 創業者 / 一人團隊</div>
+            <div class="sp-name">創業 AI 實戰</div>
+            <div class="sp-desc">手機免費版起步，30+ 則 Prompt 範本帶回家。</div>
+          </div>
+          <div class="sp-card">
+            <div class="sp-tag">入口 B · 上班族</div>
+            <div class="sp-name">辦公室 AI 工具實務應用</div>
+            <div class="sp-desc">不寫程式入門，週報、Email、簡報大綱三大文件加速。</div>
+          </div>
+          <div class="sp-card">
+            <div class="sp-tag">入口 C · 公部門 / 通用職場</div>
+            <div class="sp-name">從「問 AI」到「交辦 AI」</div>
+            <div class="sp-desc">結構化 AI 交辦框架，零英文術語，通用任何行業情境。</div>
+          </div>
+          <div class="sp-card">
+            <div class="sp-tag">入口 D · 職能混合班</div>
+            <div class="sp-name">辦公室 AI 工具案例應用</div>
+            <div class="sp-desc">6h 客製版，業務／財務／電商／行政 4 大部門實戰案例，56 套提示詞與 sample dataset 全部帶走。</div>
+          </div>
+        </div>
       </div>
-      <div class="course-line" data-anim>
-        <div class="tag">02 · 速成</div>
-        <div class="name">辦公室 AI 工具實務應用</div>
-        <div class="desc">上班族不寫程式入門。週報、Email、簡報大綱三大文件加速。</div>
-      </div>
-      <div class="course-line" data-anim>
-        <div class="tag">03 · 公部門</div>
-        <div class="name">從「問 AI」到「交辦 AI」</div>
-        <div class="desc">結構化 AI 交辦框架。零英文術語，全程通用任何行業情境。</div>
-      </div>
-      <div class="course-line" data-anim>
-        <div class="tag">04 · 系統</div>
-        <div class="name">AI 實務全攻略</div>
-        <div class="desc">非技術職場系統性學 AI。文書 + 知識管理 + 零代碼工具開發六大模組。</div>
-      </div>
-      <div class="course-line" data-anim>
-        <div class="tag">05 · 進階</div>
-        <div class="name">生成式 AI 工作應用班</div>
-        <div class="desc">上班族濃縮版。全面導入 AI 工作流，全程零代碼。</div>
-      </div>
-      <div class="course-line" data-anim>
-        <div class="tag">06 · 完整</div>
-        <div class="name">生成式 AI 職訓實務應用班</div>
-        <div class="desc">完整職訓。含 API 整合、自動化串接、版本管理、部署等進階實務。</div>
+
+      <div class="sp-merge" data-anim>四條入口都帶走一套個人 Prompt 範本庫，匯流進系統層</div>
+
+      <div class="sp-band" data-anim>
+        <div class="sp-band-label">沿路徑往上 · 系統 → 進階 → 完整</div>
+        <div class="sp-row">
+          <div class="sp-card">
+            <div class="sp-tag">系統層 · L2–L3 · 六大模組</div>
+            <div class="sp-name">AI 實務全攻略</div>
+            <div class="sp-desc">非技術職場系統性學 AI：文書、知識管理、零代碼工具開發等六大模組，把零散技巧整合成體系。</div>
+            <div class="sp-link">→ 帶著六大模組能力，進入進階層全面導入。</div>
+          </div>
+          <div class="sp-arrow">→</div>
+          <div class="sp-card">
+            <div class="sp-tag">進階層 · L3 · 工作流導入</div>
+            <div class="sp-name">生成式 AI 工作應用班</div>
+            <div class="sp-desc">上班族濃縮版，全面導入 AI 工作流，全程零代碼，把 AI 變成每日工作的一部分。</div>
+            <div class="sp-link">→ 帶著跑得動的工作流，進入完整層補開發實務。</div>
+          </div>
+          <div class="sp-arrow">→</div>
+          <div class="sp-card">
+            <div class="sp-tag">完整層 · L4 · 完整職訓</div>
+            <div class="sp-name">生成式 AI 職訓實務應用班</div>
+            <div class="sp-desc">完整職訓，補上 API 整合、自動化串接、版本管理、部署等進階開發實務。</div>
+            <div class="sp-link">→ 結業後對接應用程式設計、自動化等專門方向。</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>六門課依時數與深度組合</div>
-    <div>Page 03 · GenAI General</div>
+    <div>七門課排成一條路：入門 → 系統 → 進階 → 完整</div>
+    <div>Page 04 · GenAI General</div>
   </div>
 </section>
 
